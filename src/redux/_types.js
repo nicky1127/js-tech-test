@@ -1,1 +1,4 @@
 export const GET_LIVE_EVENT_LIST= 'GET_LIVE_EVENT_LIST'
+
+export const GET_EVENT_BY_ID= 'GET_EVENT_BY_ID'
+

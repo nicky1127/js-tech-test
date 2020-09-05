@@ -2,10 +2,11 @@ import React from "react";
 import logo from "../logo.svg";
 import "../App.css";
 import { connect } from "react-redux";
-import { getLiveEventList } from "redux/_actions";
+import { getLiveEventList, getEventById } from "redux/_actions";
 
 const EventListPage = props => {
   props.getLiveEventList(false);
+  props.getEventById(21249945);
   return (
     <div className="App">
       <header className="App-header">
@@ -35,7 +36,7 @@ EventListPage.propTypes = {};
 //   return {};
 // };
 
-const ConnectedEventListPage = connect(null, { getLiveEventList })(
+const ConnectedEventListPage = connect(null, { getLiveEventList,getEventById })(
   EventListPage
 );
 
