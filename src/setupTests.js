@@ -2,4 +2,13 @@
 // allows you to do things like:
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
-import '@testing-library/jest-dom/extend-expect';
+import "@testing-library/jest-dom/extend-expect";
+import React from "react";
+import renderer from "react-test-renderer";
+import { JSDOM } from "jsdom";
+
+const dom = new JSDOM();
+global.document = dom.window.document;
+global.window = dom.window;
+global.React = React;
+global.renderer = renderer;
