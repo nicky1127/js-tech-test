@@ -5,7 +5,9 @@ import { connect } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 import { Box, Typography } from "@material-ui/core";
 import NoSelection from "components/NoSelection";
-import constants from "constants";
+import labels from "constants/labels";
+
+const constants= labels.BetSlipPanel
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -42,7 +44,7 @@ export const BetSlipPanel = ({ children }) => {
     <div className={clsx("betSlipPanel", classes.root)}>
       <Box className={classes.header}>
         <Box className={classes.numFlag}>3</Box>
-        <Typography className={classes.headerText}>My Bet Slip</Typography>
+        <Typography className={classes.headerText}>{constants.header}</Typography>
       </Box>
       <NoSelection />
     </div>

@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export const NoSelection = ({ children }) => {
+export const NoSelection = () => {
   const classes = useStyles();
   const items = constants.options;
   return (

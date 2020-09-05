@@ -5,7 +5,9 @@ import { connect } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 import { Box, Typography } from "@material-ui/core";
 import BetSlipPanel from "components/layouts/BetSlipPanel";
-import constants from "constants";
+import labels from "constants/labels";
+
+const constants = labels.MainLayout
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -43,14 +45,14 @@ export const MainLayout = ({ children }) => {
       <Box className={clsx("contentWrapper", classes.contentWrapper)}>
         <Box className={clsx("appBar", classes.appBar)}>
           <Typography className={classes.text} component="span">
-            My Bets
+           {constants.links.MY_BETS}
           </Typography>
           <div className={classes.logo}></div>
           <Typography className={classes.text} component="span">
-            Join
+            {constants.links.JOIN}
           </Typography>
           <Typography className={classes.text} component="span">
-            Log in
+          {constants.links.LOG_IN}
           </Typography>
         </Box>
         {children}
