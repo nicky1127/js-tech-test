@@ -7,7 +7,7 @@ import { Box, Typography } from "@material-ui/core";
 import NoSelection from "components/units/NoSelection";
 import labels from "constants/labels";
 
-const constants= labels.BetSlipPanel
+const constants = labels.BetSlipPanel;
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -15,6 +15,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: "rgb(239,244,252)"
   },
   header: {
+    boxSizing: "border-box",
     height: "8vh",
     padding: "0 8%",
     width: "100%",
@@ -44,7 +45,9 @@ export const BetSlipPanel = ({ children }) => {
     <div className={clsx("betSlipPanel", classes.root)}>
       <Box className={classes.header}>
         <Box className={classes.numFlag}>3</Box>
-        <Typography className={classes.headerText}>{constants.header}</Typography>
+        <Typography className={classes.headerText}>
+          {constants.header}
+        </Typography>
       </Box>
       <NoSelection />
     </div>

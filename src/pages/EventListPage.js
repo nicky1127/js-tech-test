@@ -1,76 +1,76 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import clsx from "clsx";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
-import {
-  Paper,
-  Table,
-  TableContainer,
-  TableHead,
-  TableRow,
-  TableCell,
-  TableBody
-} from "@material-ui/core";
 import { connect } from "react-redux";
+import {
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  Typography
+} from "@material-ui/core";
+import { ExpandMore } from "@material-ui/icons";
 import { getLiveEventList, getEventById } from "redux/_actions";
 import { sortEventsByTime, groupEventsByType } from "redux/selectors";
-import ScoreTag from "components/units/ScoreTag";
+
+import EventType from "components/accordions/EventType";
 
 const useStyles = makeStyles({
-  table: {
-    minWidth: 650
+  root: {
+    margin: "10px"
+  },
+  header: {
+    color: "#fff",
+    backgroundColor: "rgb(10,40,108)",
+    borderTopLeftRadius: "5px",
+    borderTopRightRadius: "5px"
+  },
+  icon: { color: "#fff" },
+  details: {
+    padding: 0,
+    flexDirection: "column"
   }
 });
 
 const EventListPage = props => {
   const classes = useStyles();
 
-  const { liveEvents, eventGroup } = props;
+  const { eventGroup } = props;
+  const [expanded, setExpanded] = useState(true);
 
-  console.log("liveEvents", liveEvents.length);
-  console.log("eventGroup", eventGroup);
+  let content;
 
-  const rows = liveEvents.map(event => ({
-    time: new Date(event.startTime).toLocaleTimeString("en-GB", {
-      hour: "numeric",
-      minute: "numeric"
-    }),
-    name: event.name,
-    type: event.linkedEventTypeName || event.typeName,
-    scores: event.scores
-  }));
+  if (Array.isArray(eventGroup) && eventGroup.length > 0) {
+    content = eventGroup.map((group, index) => (
+      <EventType key={`eventType-${index}`} group={group} />
+    ));
+  }
 
   useEffect(() => {
     props.getLiveEventList(false);
     props.getEventById(21249945);
   }, []);
   return (
-    <div className="App">
-      <TableContainer component={Paper}>
-        <Table className={classes.table} aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell>Time</TableCell>
-              <TableCell align="left">Name</TableCell>
-              <TableCell align="left">Type</TableCell>
-              <TableCell align="right">Boost</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows.map(row => (
-              <TableRow key={row.name}>
-                <TableCell component="th" scope="row">
-                  {row.time}
-                </TableCell>
-                <TableCell align="left">{row.name}</TableCell>
-                <TableCell align="left">{row.type}</TableCell>
-                <TableCell align="right">
-                  <ScoreTag scores={row.scores} />
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+    <div className={clsx("eventListPage", classes.root)}>
+      <Accordion expanded={expanded}>
+        <AccordionSummary
+          className={classes.header}
+          expandIcon={
+            <ExpandMore
+            fontSize="large"
+              className={classes.icon}
+              onClick={() => setExpanded(!expanded)}
+            />
+          }
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography className={classes.heading}>Football</Typography>
+        </AccordionSummary>
+        <AccordionDetails classes={{ root: classes.details }}>
+          {content}
+        </AccordionDetails>
+      </Accordion>
     </div>
   );
 };

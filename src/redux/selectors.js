@@ -20,11 +20,16 @@ export const sortEventsByTime = createCachedSelector(
   }
 )((state, props) => "sortedLiveEvents");
 
-// selector to sort events in a ascending order
+// selector to group events by type
 export const groupEventsByType = createCachedSelector(
   sortEventsByTime,
   events => {
     const group = {};
+    Object.defineProperty(group, "Football Live", {
+      value: [],
+      writable: true,
+      enumerable: true
+    });
     events.forEach(event => {
       const type = event.linkedEventTypeName || event.typeName;
 
@@ -33,10 +38,9 @@ export const groupEventsByType = createCachedSelector(
         : Object.defineProperty(group, type, {
             value: [event],
             writable: true,
-            enumerable:true
+            enumerable: true
           });
     });
     return Object.entries(group);
   }
 )((state, props) => "groupedLiveEvents");
-
