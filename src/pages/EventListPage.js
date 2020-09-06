@@ -12,7 +12,7 @@ import {
 } from "@material-ui/core";
 import { connect } from "react-redux";
 import { getLiveEventList, getEventById } from "redux/_actions";
-import { filterDisplayableEvents } from "redux/selectors";
+import { sortEventsByTime } from "redux/selectors";
 import ScoreTag from "components/units/ScoreTag";
 
 const useStyles = makeStyles({
@@ -29,7 +29,7 @@ const EventListPage = props => {
   console.log("liveEvents", liveEvents.length);
 
   const rows = liveEvents.map(event => ({
-    time: event.startTime,
+    time: new Date(event.startTime).toLocaleTimeString('en-GB', { hour: 'numeric', minute: 'numeric' }),
     name: event.name,
     scores: event.scores
   }));
@@ -74,7 +74,7 @@ EventListPage.propTypes = { liveEvents: PropTypes.array };
 
 const mapStateToProps = (state, props) => {
   return {
-    liveEvents: filterDisplayableEvents(state, props)
+    liveEvents: sortEventsByTime(state, props)
   };
 };
 
