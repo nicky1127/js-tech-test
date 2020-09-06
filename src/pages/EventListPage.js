@@ -1,43 +1,83 @@
-import React from "react";
-import logo from "../logo.svg";
-import "../App.css";
+import React, { useEffect } from "react";
+import PropTypes from "prop-types";
+import { makeStyles } from "@material-ui/core/styles";
+import {
+  Paper,
+  Table,
+  TableContainer,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableBody
+} from "@material-ui/core";
 import { connect } from "react-redux";
 import { getLiveEventList, getEventById } from "redux/_actions";
+import { filterDisplayableEvents } from "redux/selectors";
+
+const useStyles = makeStyles({
+  table: {
+    minWidth: 650
+  }
+});
 
 const EventListPage = props => {
-  props.getLiveEventList(false);
-  props.getEventById(21249945);
+  const classes = useStyles();
+
+  const { liveEvents } = props;
+
+  console.log("liveEvents", liveEvents.length);
+
+  const rows = liveEvents.map(event => ({
+    time: event.startTime,
+    name: event.name,
+    sort: event.sort
+  }));
+
+  useEffect(() => {
+    props.getLiveEventList(false);
+    props.getEventById(21249945);
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TableContainer component={Paper}>
+        <Table className={classes.table} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>Time</TableCell>
+              <TableCell align="left">Name</TableCell>
+              <TableCell align="right">Boost</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows.map(row => (
+              <TableRow key={row.name}>
+                <TableCell component="th" scope="row">
+                  {row.time}
+                </TableCell>
+                <TableCell align="left">{row.name}</TableCell>
+                <TableCell align="right">{row.sort}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </div>
   );
 };
 
-EventListPage.defaultProps = {};
+EventListPage.defaultProps = { liveEvents: [] };
 
-EventListPage.propTypes = {};
+EventListPage.propTypes = { liveEvents: PropTypes.array };
 
-// const mapStateToProps = state => {
-//   const {} = state;
-//   return {};
-// };
+const mapStateToProps = (state, props) => {
+  return {
+    liveEvents: filterDisplayableEvents(state, props)
+  };
+};
 
-const ConnectedEventListPage = connect(null, { getLiveEventList,getEventById })(
-  EventListPage
-);
+const ConnectedEventListPage = connect(mapStateToProps, {
+  getLiveEventList,
+  getEventById
+})(EventListPage);
 
 export default ConnectedEventListPage;

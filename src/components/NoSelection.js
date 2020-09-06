@@ -40,8 +40,8 @@ export const NoSelection = () => {
       <Typography className={classes.noSelectText}>
         {constants.description}
       </Typography>
-      {items.map(item => (
-        <Box className={classes.optionBox}>
+      {items.map((item, idx) => (
+        <Box className={classes.optionBox} key={`noSelection_option_${idx}`}>
           <Typography className={classes.noSelectSubText}>{item}</Typography>
         </Box>
       ))}
