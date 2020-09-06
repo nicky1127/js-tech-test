@@ -98,7 +98,7 @@ export const EventType = props => {
 
 EventType.defaultProps = {};
 
-EventType.propTypes = {};
+EventType.propTypes = {group: PropTypes.array};
 
 const mapStateToProps = state => {
   const { test } = state;

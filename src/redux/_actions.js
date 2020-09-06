@@ -5,7 +5,37 @@ export const getLiveEventList = (priMarket = true) => {
   return obj;
 };
 
+export const setLiveEventList = payload => {
+  const obj = { type: types.SET_LIVE_EVENT_LIST, payload };
+  return obj;
+};
+
 export const getEventById = id => {
   const obj = { type: types.GET_EVENT_BY_ID, id };
+  return obj;
+};
+
+export const setEventById = payload => {
+  const obj = { type: types.SET_EVENT_BY_ID, payload };
+  return obj;
+};
+
+export const getMarketById = id => {
+  const obj = { type: types.GET_MARKET_BY_ID, id };
+  return obj;
+};
+
+export const setMarketById = payload => {
+  const obj = { type: types.SET_MARKET_BY_ID, payload };
+  return obj;
+};
+
+export const getOutcomeById = id => {
+  const obj = { type: types.GET_OUTCOME_BY_ID, id };
+  return obj;
+};
+
+export const setOutcomeById = payload => {
+  const obj = { type: types.SET_OUTCOME_BY_ID, payload };
   return obj;
 };
