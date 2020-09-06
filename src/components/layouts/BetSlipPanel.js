@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { connect } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 import { Box, Typography } from "@material-ui/core";
-import NoSelection from "components/NoSelection";
+import NoSelection from "components/units/NoSelection";
 import labels from "constants/labels";
 
 const constants= labels.BetSlipPanel

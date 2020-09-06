@@ -14,8 +14,29 @@ export const filterDisplayableEvents = createCachedSelector(
 export const sortEventsByTime = createCachedSelector(
   filterDisplayableEvents,
   events => {
-    return events.sort(function(a, b) {
+    return events.sort((a, b) => {
       return new Date(a.startTime) - new Date(b.startTime);
     });
   }
 )((state, props) => "sortedLiveEvents");
+
+// selector to sort events in a ascending order
+export const groupEventsByType = createCachedSelector(
+  sortEventsByTime,
+  events => {
+    const group = {};
+    events.forEach(event => {
+      const type = event.linkedEventTypeName || event.typeName;
+
+      group[type]
+        ? group[type].push(event)
+        : Object.defineProperty(group, type, {
+            value: [event],
+            writable: true,
+            enumerable:true
+          });
+    });
+    return Object.entries(group);
+  }
+)((state, props) => "groupedLiveEvents");
+

@@ -12,7 +12,7 @@ import {
 } from "@material-ui/core";
 import { connect } from "react-redux";
 import { getLiveEventList, getEventById } from "redux/_actions";
-import { sortEventsByTime } from "redux/selectors";
+import { sortEventsByTime, groupEventsByType } from "redux/selectors";
 import ScoreTag from "components/units/ScoreTag";
 
 const useStyles = makeStyles({
@@ -24,13 +24,18 @@ const useStyles = makeStyles({
 const EventListPage = props => {
   const classes = useStyles();
 
-  const { liveEvents } = props;
+  const { liveEvents, eventGroup } = props;
 
   console.log("liveEvents", liveEvents.length);
+  console.log("eventGroup", eventGroup);
 
   const rows = liveEvents.map(event => ({
-    time: new Date(event.startTime).toLocaleTimeString('en-GB', { hour: 'numeric', minute: 'numeric' }),
+    time: new Date(event.startTime).toLocaleTimeString("en-GB", {
+      hour: "numeric",
+      minute: "numeric"
+    }),
     name: event.name,
+    type: event.linkedEventTypeName || event.typeName,
     scores: event.scores
   }));
 
@@ -46,6 +51,7 @@ const EventListPage = props => {
             <TableRow>
               <TableCell>Time</TableCell>
               <TableCell align="left">Name</TableCell>
+              <TableCell align="left">Type</TableCell>
               <TableCell align="right">Boost</TableCell>
             </TableRow>
           </TableHead>
@@ -56,6 +62,7 @@ const EventListPage = props => {
                   {row.time}
                 </TableCell>
                 <TableCell align="left">{row.name}</TableCell>
+                <TableCell align="left">{row.type}</TableCell>
                 <TableCell align="right">
                   <ScoreTag scores={row.scores} />
                 </TableCell>
@@ -74,7 +81,8 @@ EventListPage.propTypes = { liveEvents: PropTypes.array };
 
 const mapStateToProps = (state, props) => {
   return {
-    liveEvents: sortEventsByTime(state, props)
+    liveEvents: sortEventsByTime(state, props),
+    eventGroup: groupEventsByType(state, props)
   };
 };
 
