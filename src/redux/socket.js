@@ -48,8 +48,8 @@ export class Socket {
         res.data.markets.forEach(marketId => this.getMarketById(marketId));
     } else if (res.type === "MARKET_DATA") {
       this.dispatch(actions.setMarketById(res.data));
-      if (res.data.outcomes)
-        res.data.outcomes.forEach(outcomeId => this.getOutcomeById(outcomeId));
+      // if (res.data.outcomes)
+      //   res.data.outcomes.forEach(outcomeId => this.getOutcomeById(outcomeId));
     } else if (res.type === "OUTCOME_DATA") {
       this.dispatch(actions.setOutcomeById(res.data));
     }

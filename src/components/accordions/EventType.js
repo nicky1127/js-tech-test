@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { Redirect, useHistory } from "react-router-dom";
 import clsx from "clsx";
 import { connect } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
@@ -17,6 +18,7 @@ import {
 } from "@material-ui/core";
 import { DoubleArrow } from "@material-ui/icons";
 import ScoreTag from "components/units/ScoreTag";
+import { getEventById } from "redux/_actions";
 import labels from "constants/labels";
 
 const constants = labels.EventType;
@@ -33,6 +35,11 @@ const useStyles = makeStyles(theme => ({
   table: {
     width: "100%"
   },
+  row: {
+    "&:hover": {
+      cursor: "pointer"
+    }
+  },
   details: {
     padding: "0"
   },
@@ -45,6 +52,10 @@ export const EventType = props => {
   const classes = useStyles();
   const { group } = props;
   const [expanded, setExpanded] = useState(true);
+  const [redirect, setRedirect] = useState(false);
+  const [path, setPath] = useState("/");
+
+  let history = useHistory();
 
   const rows = group[1].map(event => ({
     time: new Date(event.startTime).toLocaleTimeString("en-GB", {
@@ -52,8 +63,20 @@ export const EventType = props => {
       minute: "numeric"
     }),
     name: event.name,
-    scores: event.scores
+    scores: event.scores,
+    eventId: event.eventId
   }));
+
+  const onClickRow = eventId => {
+    props.getEventById(eventId);
+    history.push("/");
+    setPath(`/events/${eventId}`);
+    setTimeout(() => setRedirect(true), 200);
+  };
+
+  if (redirect) {
+    return <Redirect to={path} />;
+  }
 
   return (
     <div className={clsx("EventType", classes.root)}>
@@ -62,7 +85,7 @@ export const EventType = props => {
           className={classes.header}
           expandIcon={
             <DoubleArrow
-            fontSize="small"
+              fontSize="small"
               className={classes.arrow}
               onClick={() => setExpanded(!expanded)}
             />
@@ -77,7 +100,11 @@ export const EventType = props => {
             <Table className={classes.table} aria-label="simple table">
               <TableBody>
                 {rows.map(row => (
-                  <TableRow key={row.name}>
+                  <TableRow
+                    className={classes.row}
+                    key={row.name}
+                    onClick={() => onClickRow(row.eventId)}
+                  >
                     <TableCell component="th" scope="row">
                       {row.time}
                     </TableCell>
@@ -98,13 +125,15 @@ export const EventType = props => {
 
 EventType.defaultProps = {};
 
-EventType.propTypes = {group: PropTypes.array};
+EventType.propTypes = { group: PropTypes.array };
 
 const mapStateToProps = state => {
   const { test } = state;
   return {};
 };
 
-const ConnectedEventType = connect(mapStateToProps)(EventType);
+const ConnectedEventType = connect(mapStateToProps, { getEventById })(
+  EventType
+);
 
 export default ConnectedEventType;

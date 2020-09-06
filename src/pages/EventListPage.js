@@ -10,7 +10,7 @@ import {
   Typography
 } from "@material-ui/core";
 import { ExpandMore } from "@material-ui/icons";
-import { getLiveEventList, getEventById } from "redux/_actions";
+import { getLiveEventList } from "redux/_actions";
 import { sortEventsByTime, groupEventsByType } from "redux/selectors";
 
 import EventType from "components/accordions/EventType";
@@ -47,8 +47,7 @@ const EventListPage = props => {
   }
 
   useEffect(() => {
-    props.getLiveEventList(false);
-    props.getEventById(21249945);
+    props.getLiveEventList(true);
   }, []);
   return (
     <div className={clsx("eventListPage", classes.root)}>
@@ -57,7 +56,7 @@ const EventListPage = props => {
           className={classes.header}
           expandIcon={
             <ExpandMore
-            fontSize="large"
+              fontSize="large"
               className={classes.icon}
               onClick={() => setExpanded(!expanded)}
             />
@@ -87,8 +86,7 @@ const mapStateToProps = (state, props) => {
 };
 
 const ConnectedEventListPage = connect(mapStateToProps, {
-  getLiveEventList,
-  getEventById
+  getLiveEventList
 })(EventListPage);
 
 export default ConnectedEventListPage;
