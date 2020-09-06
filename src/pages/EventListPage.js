@@ -13,6 +13,7 @@ import {
 import { connect } from "react-redux";
 import { getLiveEventList, getEventById } from "redux/_actions";
 import { filterDisplayableEvents } from "redux/selectors";
+import ScoreTag from "components/units/ScoreTag";
 
 const useStyles = makeStyles({
   table: {
@@ -30,7 +31,7 @@ const EventListPage = props => {
   const rows = liveEvents.map(event => ({
     time: event.startTime,
     name: event.name,
-    sort: event.sort
+    scores: event.scores
   }));
 
   useEffect(() => {
@@ -55,7 +56,9 @@ const EventListPage = props => {
                   {row.time}
                 </TableCell>
                 <TableCell align="left">{row.name}</TableCell>
-                <TableCell align="right">{row.sort}</TableCell>
+                <TableCell align="right">
+                  <ScoreTag scores={row.scores} />
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
