@@ -4,7 +4,7 @@ const initialState = {
   liveEvents: [],
   event: {},
   markets: {},
-  isOddsDecimal: true,
+  isOddsDecimal: false,
   loading: false
 };
 

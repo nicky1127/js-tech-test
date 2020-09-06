@@ -9,8 +9,9 @@ function App() {
     <MainLayout>
       <Router>
         <Switch>
-          <Route exact path="/" component={EventListPage} />
-          <Route path="/events/:eventId" component={EventPage} />
+          {/* <Route exact path="/" component={EventListPage} />
+          <Route path="/events/:eventId" component={EventPage} /> */}
+          <Route exact path="/" component={EventPage} />
         </Switch>
       </Router>
     </MainLayout>
