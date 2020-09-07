@@ -14,6 +14,10 @@ const reducer = (state = initialState, action) => {
     return { ...state, loading: action.payload };
   }
 
+  if (action.type === types.SET_ODDS_FORMAT) {
+    return { ...state, isOddsDecimal: action.payload };
+  }
+
   if (action.type === types.SET_ERROR) {
     return { ...state, error: action.payload };
   }

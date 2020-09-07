@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
   },
   header: {
     boxSizing: "border-box",
-    height: "8vh",
+    height: "10vh",
     padding: "0 8%",
     width: "100%",
     backgroundColor: "rgb(18,44,108)",

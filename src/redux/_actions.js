@@ -54,3 +54,8 @@ export const setError = payload => {
   const obj = { type: types.SET_ERROR, payload };
   return obj;
 };
+
+export const setOddsForamt = payload => {
+  const obj = { type: types.SET_ODDS_FORMAT, payload };
+  return obj;
+};

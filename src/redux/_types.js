@@ -14,3 +14,5 @@ export const SET_OUTCOME_BY_ID = "SET_OUTCOME_BY_ID";
 export const SET_LOADING = "SET_LOADING";
 
 export const SET_ERROR = "SET_ERROR";
+
+export const SET_ODDS_FORMAT = "SET_ODDS_FORMAT";
