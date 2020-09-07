@@ -41,11 +41,18 @@ const useStyles = makeStyles(theme => ({
       border: "1px solid rgb(179,191,211)"
     },
     "& td": {
-      border: "1px solid rgb(179,191,211)",
-      color: "rgb(217,34,49)"
+      border: "1px solid rgb(179,191,211)"
     },
-    "& td:hover": {
-      border: "1px solid rgb(179,191,211)",
+    
+  },
+  suspendedCell: {
+    backgroundColor: "rgb(205,205,206)",
+    color: "rgb(120,120,120)",
+    fontWeight: "600"
+  },
+  normalCell: {
+    color: "rgb(217,34,49)",
+    "&:hover": {
       backgroundColor: "rgb(239,244,252)",
       cursor: "pointer"
     }
@@ -98,7 +105,21 @@ export const MarketType = props => {
                         <TableCell component="th" scope="row">
                           {row.name}
                         </TableCell>
-                        <TableCell align="center">{price}</TableCell>
+                        {row.status.suspended ? (
+                          <TableCell
+                            className={classes.suspendedCell}
+                            align="center"
+                          >
+                            Susp
+                          </TableCell>
+                        ) : (
+                          <TableCell
+                            className={classes.normalCell}
+                            align="center"
+                          >
+                            {price}
+                          </TableCell>
+                        )}
                       </TableRow>
                     );
                   })}
