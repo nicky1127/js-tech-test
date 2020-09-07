@@ -35,6 +35,12 @@ export class Socket {
     // });
   };
 
+  getAllOutcomes = outcomeIds => {
+    this.socket.addEventListener("open", () => {
+      outcomeIds.forEach(id => this.getOutcomeById(id));
+    });
+  };
+
   getOutcomeById = id => {
     // this.socket.addEventListener("open", () => {
     this.socket.send(JSON.stringify({ type: "getOutcome", id }));
@@ -52,19 +58,22 @@ export class Socket {
       if (res.data.markets)
         res.data.markets.forEach(marketId => this.getMarketById(marketId));
     } else if (res.type === "MARKET_DATA") {
+      // filter undisplayable and zero outcome market 
       if (res.data.status.displayable) {
-        this.dispatch(actions.setMarketById(res.data));
-        this.marketNum++;
+        if (Array.isArray(res.data.outcomes) && res.data.outcomes.length > 0) {
+          this.dispatch(actions.setMarketById(res.data));
+          this.marketNum++;
+        }
       }
       if (this.marketNum > 10) {
         this.socket.close();
-        setTimeout(this.dispatch(actions.setLoading(false)),15000);
+        setTimeout(this.dispatch(actions.setLoading(false)), 1500);
       }
-
-      // if (res.data.outcomes)
-      //   res.data.outcomes.forEach(outcomeId => this.getOutcomeById(outcomeId));
     } else if (res.type === "OUTCOME_DATA") {
-      this.dispatch(actions.setOutcomeById(res.data));
+      // filter displayable outcome
+      if (res.data.status.displayable) {
+        this.dispatch(actions.setOutcomeById(res.data));
+      }
     } else if (res.type === "ERROR") {
       this.dispatch(actions.setError(res.data));
     }

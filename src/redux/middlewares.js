@@ -9,5 +9,9 @@ export const socketDataSetter = store => next => action => {
   if (action.type === types.GET_EVENT_BY_ID) {
     socket.getEventById(action.id);
   }
+
+  if (action.type === types.GET_OUTCOME_LIST) {
+    socket.getAllOutcomes(action.outcomeIds);
+  }
   return next(action);
 };

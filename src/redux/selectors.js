@@ -7,7 +7,11 @@ const getMarkets = state => state.markets;
 export const filterDisplayableEvents = createCachedSelector(
   getAllLiveEvents,
   events => {
-    return events.filter(event => event.status.displayable);
+    return events.filter(
+      event =>
+        event.status.displayable &&
+        Array.isArray(event.markets) && event.markets.length > 0
+    );
   }
 )((state, props) => "displayableLiveEvents");
 
@@ -69,7 +73,7 @@ export const sortMarketsByName = createCachedSelector(
   sortMarketsByOrder,
   markets => {
     return markets.sort((a, b) => {
-      return a.name.toLowerCase().localeCompare(b.name.toLowerCase());;
+      return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
     });
   }
 )((state, props) => "sortedMarketsByName");

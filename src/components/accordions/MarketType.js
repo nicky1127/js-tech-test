@@ -16,6 +16,7 @@ import {
   TableBody
 } from "@material-ui/core";
 import { ExpandMore } from "@material-ui/icons";
+import { getOutcomeListByIds } from "redux/_actions";
 import labels from "constants/labels";
 
 const constants = labels.MarketType;
@@ -53,7 +54,7 @@ const useStyles = makeStyles(theme => ({
 
 export const MarketType = props => {
   const classes = useStyles();
-  const { event, market, isOddsDecimal } = props;
+  const { event, market, isOddsDecimal, getOutcomeListByIds } = props;
   const [expanded, setExpanded] = useState(false);
 
   const rows =
@@ -64,13 +65,20 @@ export const MarketType = props => {
       price: outcome.price
     }));
 
+  const onClickBtn = () => {
+    setExpanded(!expanded);
+    if (!Object.values(market.outcomeList).length) {
+      getOutcomeListByIds(market.outcomes);
+    }
+  };
+
   return (
     <div className={clsx("marketType", classes.root)}>
       <Accordion expanded={expanded}>
         <AccordionSummary
           className={classes.header}
           expandIcon={<ExpandMore fontSize="large" className={classes.icon} />}
-          onClick={() => setExpanded(!expanded)}
+          onClick={onClickBtn}
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
@@ -112,6 +120,8 @@ const mapStateToProps = state => {
   return { isOddsDecimal };
 };
 
-const ConnectedMarketType = connect(mapStateToProps)(MarketType);
+const ConnectedMarketType = connect(mapStateToProps, { getOutcomeListByIds })(
+  MarketType
+);
 
 export default ConnectedMarketType;
