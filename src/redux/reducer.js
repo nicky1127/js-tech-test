@@ -5,12 +5,25 @@ const initialState = {
   event: {},
   markets: {},
   isOddsDecimal: false,
-  loading: false
+  loading: false,
+  error: {}
 };
 
 const reducer = (state = initialState, action) => {
+  if (action.type === types.SET_LOADING) {
+    return { ...state, loading: action.payload };
+  }
+
+  if (action.type === types.SET_ERROR) {
+    return { ...state, error: action.payload };
+  }
+
   if (action.type === types.SET_LIVE_EVENT_LIST) {
     return { ...state, liveEvents: action.payload };
+  }
+
+  if (action.type === types.GET_EVENT_BY_ID) {
+    return { ...state, markets: {}, loading: true };
   }
 
   if (action.type === types.SET_EVENT_BY_ID) {

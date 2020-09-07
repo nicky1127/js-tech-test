@@ -35,7 +35,7 @@ const useStyles = makeStyles({
 const EventListPage = props => {
   const classes = useStyles();
 
-  const { eventGroup } = props;
+  const { eventGroup,getLiveEventList } = props;
   const [expanded, setExpanded] = useState(true);
 
   let content;
@@ -47,8 +47,9 @@ const EventListPage = props => {
   }
 
   useEffect(() => {
-    props.getLiveEventList(true);
+    getLiveEventList(true);
   }, []);
+  
   return (
     <div className={clsx("eventListPage", classes.root)}>
       <Accordion expanded={expanded}>

@@ -5,8 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { connect } from "react-redux";
 import MarketType from "components/accordions/MarketType";
 import { getLiveEventList, getEventById } from "redux/_actions";
-import { sortEventsByTime, groupEventsByType } from "redux/selectors";
-
+import {sortMarketsByName } from "redux/selectors";
 
 const useStyles = makeStyles({
   root: {
@@ -28,7 +27,15 @@ const useStyles = makeStyles({
 const EventPage = props => {
   const classes = useStyles();
 
-  const { event, markets } = props;
+  const { event, markets, location, getEventById } = props;
+
+  const eventId =
+    !isNaN(location.pathname.split("/")[2]) &&
+    parseInt(location.pathname.split("/")[2], 10);
+
+  useEffect(() => {
+    getEventById(eventId);
+  }, [eventId]);
 
   let content;
 
@@ -38,16 +45,7 @@ const EventPage = props => {
     ));
   }
 
-  useEffect(() => {
-    props.getLiveEventList(false);
-    props.getEventById(21249945);
-  }, []);
-
-  return (
-    <div className={clsx("eventPage", classes.root)}>
-      {content}
-    </div>
-  );
+  return <div className={clsx("eventPage", classes.root)}>{content}</div>;
 };
 
 EventPage.defaultProps = { event: {}, markets: {} };
@@ -57,7 +55,7 @@ EventPage.propTypes = {};
 const mapStateToProps = (state, props) => {
   return {
     event: state.event,
-    markets: Object.values(state.markets)
+    markets: sortMarketsByName(state, props)
   };
 };
 

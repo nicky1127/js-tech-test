@@ -39,3 +39,13 @@ export const setOutcomeById = payload => {
   const obj = { type: types.SET_OUTCOME_BY_ID, payload };
   return obj;
 };
+
+export const setLoading = payload => {
+  const obj = { type: types.SET_LOADING, payload };
+  return obj;
+};
+
+export const setError = payload => {
+  const obj = { type: types.SET_ERROR, payload };
+  return obj;
+};

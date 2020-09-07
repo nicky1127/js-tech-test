@@ -68,7 +68,6 @@ export const EventType = props => {
   }));
 
   const onClickRow = eventId => {
-    props.getEventById(eventId);
     history.push("/");
     setPath(`/events/${eventId}`);
     setTimeout(() => setRedirect(true), 200);
@@ -125,15 +124,15 @@ export const EventType = props => {
 
 EventType.defaultProps = {};
 
-EventType.propTypes = { group: PropTypes.array };
+EventType.propTypes = { loading: PropTypes.bool, group: PropTypes.array };
 
 const mapStateToProps = state => {
-  const { test } = state;
-  return {};
+  const { loading } = state;
+  return { loading };
 };
 
-const ConnectedEventType = connect(mapStateToProps, { getEventById })(
-  EventType
-);
+const ConnectedEventType = connect(mapStateToProps, {
+  getEventById
+})(EventType);
 
 export default ConnectedEventType;

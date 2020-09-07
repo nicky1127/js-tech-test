@@ -9,3 +9,7 @@ export const SET_MARKET_BY_ID = "SET_MARKET_BY_ID";
 
 export const GET_OUTCOME_BY_ID = "GET_OUTCOME_BY_ID";
 export const SET_OUTCOME_BY_ID = "SET_OUTCOME_BY_ID";
+
+export const SET_LOADING = "SET_LOADING";
+
+export const SET_ERROR = "SET_ERROR";

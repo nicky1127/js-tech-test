@@ -56,8 +56,6 @@ export const MarketType = props => {
   const { event, market, isOddsDecimal } = props;
   const [expanded, setExpanded] = useState(false);
 
-  console.log("market: ", market);
-
   const rows =
     market.outcomeList &&
     Object.values(market.outcomeList).map(outcome => ({
@@ -71,13 +69,8 @@ export const MarketType = props => {
       <Accordion expanded={expanded}>
         <AccordionSummary
           className={classes.header}
-          expandIcon={
-            <ExpandMore
-              fontSize="large"
-              className={classes.icon}
-              onClick={() => setExpanded(!expanded)}
-            />
-          }
+          expandIcon={<ExpandMore fontSize="large" className={classes.icon} />}
+          onClick={() => setExpanded(!expanded)}
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
