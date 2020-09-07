@@ -3,14 +3,13 @@ import clsx from "clsx";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import { connect } from "react-redux";
+import { Box, Typography, Grid } from "@material-ui/core";
 import MarketType from "components/accordions/MarketType";
 import { getLiveEventList, getEventById } from "redux/_actions";
-import {sortMarketsByName } from "redux/selectors";
+import { sortMarketsByName } from "redux/selectors";
 
 const useStyles = makeStyles({
-  root: {
-    margin: "10px"
-  },
+  root: {},
   header: {
     color: "#fff",
     backgroundColor: "rgb(10,40,108)",
@@ -18,9 +17,30 @@ const useStyles = makeStyles({
     borderTopRightRadius: "5px"
   },
   icon: { color: "#fff" },
-  details: {
-    padding: 0,
-    flexDirection: "column"
+  detailContainer: {
+    width: "100%",
+    height: "200px",
+    boxSizing: "border-box",
+    padding: "10px",
+    backgroundColor: "rgb(13,32,81)",
+    color: "#fff"
+  },
+  eventType: { fontSize: "15px", fontWeight: "600" },
+  eventDate: { fontSize: "12px", fontWeight: "400", marginLeft: "30px" },
+  eventName: {
+    padding: "30px 40px 0",
+    fontSize: "22px",
+    fontWeight: "600"
+  },
+  eventScores: {
+    display: "flex",
+    alignItems: "center",
+    padding: "20px 40px 0",
+    fontSize: "15px"
+    // fontWeight: "600"
+  },
+  marketContainer: {
+    margin: "10px"
   }
 });
 
@@ -38,6 +58,7 @@ const EventPage = props => {
   }, [eventId]);
 
   let content;
+  console.log("event", event);
 
   if (Array.isArray(markets) && markets.length > 0) {
     content = markets.map((market, index) => (
@@ -45,7 +66,47 @@ const EventPage = props => {
     ));
   }
 
-  return <div className={clsx("eventPage", classes.root)}>{content}</div>;
+  const date = new Date(event.startTime).toDateString();
+  const time = new Date(event.startTime).toLocaleTimeString("en-GB", {
+    hour: "numeric",
+    minute: "numeric"
+  });
+  return (
+    <div className={clsx("eventPage", classes.root)}>
+      <Box className={classes.detailContainer}>
+        <Typography className={classes.eventType} variant="span">
+          {event.typeName}
+        </Typography>
+        <Typography
+          variant="span"
+          className={classes.eventDate}
+        >{`${date} ${time}`}</Typography>
+        <Grid container spacing={0} className={classes.eventName}>
+          <Grid item sm={5} style={{ textAlign: "right" }}>
+            {event.competitors && event.competitors[0].name}
+          </Grid>
+          <Grid item sm={2} style={{ textAlign: "center" }}>
+            V.S.
+          </Grid>
+          <Grid item sm={5} style={{ textAlign: "left" }}>
+            {event.competitors && event.competitors[1].name}
+          </Grid>
+        </Grid>
+        <Grid container spacing={0} className={classes.eventScores}>
+          <Grid item sm={5} style={{ textAlign: "right" }}>
+            Home
+          </Grid>
+          <Grid item sm={2} style={{ textAlign: "center", fontSize: "25px" }}>
+            {event.scores && `${event.scores.home} : ${event.scores.away}`}
+          </Grid>
+          <Grid item sm={5} style={{ textAlign: "left" }}>
+            Away
+          </Grid>
+        </Grid>
+      </Box>
+      <Box className={classes.marketContainer}>{content}</Box>
+    </div>
+  );
 };
 
 EventPage.defaultProps = { event: {}, markets: {} };
