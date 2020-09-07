@@ -49,7 +49,7 @@ export class Socket {
 
   responseHandler = res => {
     if (!res.type) return new Error("Type is not found in the response");
-    console.log("res.type: ", res);
+    // console.log("res.type: ", res);
     if (res.type === "LIVE_EVENTS_DATA") {
       this.dispatch(actions.setLiveEventList(res.data));
     } else if (res.type === "EVENT_DATA") {

@@ -16,7 +16,7 @@ import {
   TableBody
 } from "@material-ui/core";
 import { ExpandMore } from "@material-ui/icons";
-import { getOutcomeListByIds } from "redux/_actions";
+import { getOutcomeListByIds, addSelection } from "redux/_actions";
 import labels from "constants/labels";
 
 const constants = labels.MarketType;
@@ -42,8 +42,7 @@ const useStyles = makeStyles(theme => ({
     },
     "& td": {
       border: "1px solid rgb(179,191,211)"
-    },
-    
+    }
   },
   suspendedCell: {
     backgroundColor: "rgb(205,205,206)",
@@ -61,15 +60,21 @@ const useStyles = makeStyles(theme => ({
 
 export const MarketType = props => {
   const classes = useStyles();
-  const { event, market, isOddsDecimal, getOutcomeListByIds } = props;
+  const {
+    event,
+    market,
+    isOddsDecimal,
+    getOutcomeListByIds,
+    addSelection
+  } = props;
   const [expanded, setExpanded] = useState(false);
 
   const rows =
     market.outcomeList &&
     Object.values(market.outcomeList).map(outcome => ({
-      status: outcome.status,
-      name: outcome.name,
-      price: outcome.price
+      ...outcome,
+      marketName: market.name,
+      eventName: event.name
     }));
 
   const onClickBtn = () => {
@@ -77,6 +82,11 @@ export const MarketType = props => {
     if (!Object.values(market.outcomeList).length) {
       getOutcomeListByIds(market.outcomes);
     }
+  };
+
+  const onClickNormalCell = outcome => {
+    
+    addSelection(outcome);
   };
 
   return (
@@ -116,6 +126,7 @@ export const MarketType = props => {
                           <TableCell
                             className={classes.normalCell}
                             align="center"
+                            onClick={() => onClickNormalCell(row)}
                           >
                             {price}
                           </TableCell>
@@ -141,8 +152,9 @@ const mapStateToProps = state => {
   return { isOddsDecimal };
 };
 
-const ConnectedMarketType = connect(mapStateToProps, { getOutcomeListByIds })(
-  MarketType
-);
+const ConnectedMarketType = connect(mapStateToProps, {
+  getOutcomeListByIds,
+  addSelection
+})(MarketType);
 
 export default ConnectedMarketType;

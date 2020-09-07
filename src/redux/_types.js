@@ -16,3 +16,6 @@ export const SET_LOADING = "SET_LOADING";
 export const SET_ERROR = "SET_ERROR";
 
 export const SET_ODDS_FORMAT = "SET_ODDS_FORMAT";
+
+export const ADD_SELECTION = "ADD_SELECTION";
+export const REMOVE_SELECTION = "REMOVE_SELECTION";

@@ -59,3 +59,13 @@ export const setOddsForamt = payload => {
   const obj = { type: types.SET_ODDS_FORMAT, payload };
   return obj;
 };
+
+export const addSelection = payload => {
+  const obj = { type: types.ADD_SELECTION, payload };
+  return obj;
+};
+
+export const removeSelection = payload => {
+  const obj = { type: types.REMOVE_SELECTION, payload };
+  return obj;
+};

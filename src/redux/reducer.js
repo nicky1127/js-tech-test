@@ -6,7 +6,8 @@ const initialState = {
   markets: {},
   isOddsDecimal: false,
   loading: false,
-  error: {}
+  error: {},
+  selections: []
 };
 
 const reducer = (state = initialState, action) => {
@@ -50,6 +51,20 @@ const reducer = (state = initialState, action) => {
 
     return { ...state, markets };
   }
+
+  if (action.type === types.ADD_SELECTION) {
+    const arr = state.selections.concat(action.payload);
+    return { ...state, selections: arr };
+  }
+
+  if (action.type === types.REMOVE_SELECTION) {
+    console.log("huu");
+    const arr = state.selections.filter(
+      selection => selection.outcomeId !== action.payload
+    );
+    return { ...state, selections: arr };
+  }
+
   return state;
 };
 

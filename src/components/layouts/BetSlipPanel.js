@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 import { Box, Typography } from "@material-ui/core";
 import NoSelection from "components/units/NoSelection";
+import Selections from "components/accordions/Selections";
 import labels from "constants/labels";
 
 const constants = labels.BetSlipPanel;
@@ -12,7 +13,8 @@ const constants = labels.BetSlipPanel;
 const useStyles = makeStyles(theme => ({
   root: {
     width: "24%",
-    backgroundColor: "rgb(239,244,252)"
+    backgroundColor: props =>
+      props.selections.length > 0 ? "#fff" : "rgb(239,244,252)"
   },
   header: {
     boxSizing: "border-box",
@@ -22,6 +24,12 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: "rgb(18,44,108)",
     display: "flex",
     alignItems: "center"
+  },
+  panelBody: {
+    width: "100%",
+    height: "90vh",
+    border: props =>
+      props.selections.length > 0 ? "1px solid rgb(165,175,194)" : "none"
   },
   numFlag: {
     width: "30px",
@@ -38,18 +46,20 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export const BetSlipPanel = ({ children }) => {
-  const classes = useStyles();
+export const BetSlipPanel = ({ children, selections }) => {
+  const classes = useStyles({ selections });
 
   return (
     <div className={clsx("betSlipPanel", classes.root)}>
       <Box className={classes.header}>
-        <Box className={classes.numFlag}>3</Box>
+        <Box className={classes.numFlag}>{selections.length}</Box>
         <Typography className={classes.headerText}>
           {constants.header}
         </Typography>
       </Box>
-      <NoSelection />
+      <Box className={classes.panelBody}>
+        {selections.length > 0 ? <Selections /> : <NoSelection />}
+      </Box>
     </div>
   );
 };
@@ -59,8 +69,8 @@ BetSlipPanel.defaultProps = {};
 BetSlipPanel.propTypes = {};
 
 const mapStateToProps = state => {
-  const { test } = state;
-  return {};
+  const { selections } = state;
+  return { selections };
 };
 
 const ConnectedBetSlipPanel = connect(mapStateToProps)(BetSlipPanel);
