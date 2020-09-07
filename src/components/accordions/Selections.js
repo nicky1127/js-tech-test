@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { Redirect, useHistory } from "react-router-dom";
 import clsx from "clsx";
 import { connect } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
@@ -8,17 +7,9 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
-  Typography,
-  Grid,
-  Box,
-  Paper,
-  Table,
-  TableContainer,
-  TableRow,
-  TableCell,
-  TableBody
+  Typography
 } from "@material-ui/core";
-import { ExpandMore, Clear } from "@material-ui/icons";
+import { ExpandMore } from "@material-ui/icons";
 import SelectionUnit from "components/units/SelectionUnit";
 import { getEventById } from "redux/_actions";
 import labels from "constants/labels";
@@ -45,10 +36,8 @@ const useStyles = makeStyles(theme => ({
 
 export const Selections = props => {
   const classes = useStyles();
-  const { isOddsDecimal, selections } = props;
+  const { selections } = props;
   const [expanded, setExpanded] = useState(true);
-  const [redirect, setRedirect] = useState(false);
-  const [path, setPath] = useState("/");
 
   let content;
   if (selections.length > 0) {
@@ -56,21 +45,6 @@ export const Selections = props => {
       <SelectionUnit outcome={selection} />
     ));
   }
-  //   const rows = group[1].map(event => ({
-  //     time: new Date(event.startTime).toLocaleTimeString("en-GB", {
-  //       hour: "numeric",
-  //       minute: "numeric"
-  //     }),
-  //     name: event.name,
-  //     scores: event.scores,
-  //     eventId: event.eventId
-  //   }));
-
-  //   const onClickRow = eventId => {
-  //     history.push("/");
-  //     setPath(`/events/${eventId}`);
-  //     setTimeout(() => setRedirect(true), 200);
-  //   };
 
   return (
     <div className={clsx("Selections", classes.root)}>
@@ -86,27 +60,6 @@ export const Selections = props => {
         </AccordionSummary>
         <AccordionDetails classes={{ root: classes.details }}>
           {content}
-          {/* <TableContainer component={Paper}>
-            <Table className={classes.table} aria-label="simple table">
-              <TableBody>
-                {rows.map(row => (
-                  <TableRow
-                    className={classes.row}
-                    key={row.name}
-                    onClick={() => onClickRow(row.eventId)}
-                  >
-                    <TableCell component="th" scope="row">
-                      {row.time}
-                    </TableCell>
-                    <TableCell align="left">{row.name}</TableCell>
-                    <TableCell align="right">
-                      <ScoreTag scores={row.scores} />
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer> */}
         </AccordionDetails>
       </Accordion>
     </div>

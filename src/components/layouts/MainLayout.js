@@ -52,7 +52,6 @@ const useStyles = makeStyles(theme => ({
     borderRadius: 4,
     position: "relative",
     backgroundColor: theme.palette.background.paper,
-    // border: '1px solid #ced4da',
     fontSize: "14px",
     textAlign: "center",
     "&:focus": {

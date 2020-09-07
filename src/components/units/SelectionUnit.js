@@ -1,22 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import { connect } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
-import {
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-  Typography,
-  Grid,
-  Box,
-  Paper,
-  Table,
-  TableContainer,
-  TableRow,
-  TableCell,
-  TableBody
-} from "@material-ui/core";
+import { Grid, Box } from "@material-ui/core";
 import { ExpandMore, Clear } from "@material-ui/icons";
 import ScoreTag from "components/units/ScoreTag";
 import { removeSelection } from "redux/_actions";
