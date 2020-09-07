@@ -12,7 +12,11 @@ const constants = labels.BetSlipPanel;
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: "24%",
+    width: "23%",
+    height: "100vh",
+    position: "fixed",
+    overflowY: "scroll",
+    right: "0",
     backgroundColor: props =>
       props.selections.length > 0 ? "#fff" : "rgb(239,244,252)"
   },
@@ -27,7 +31,7 @@ const useStyles = makeStyles(theme => ({
   },
   panelBody: {
     width: "100%",
-    height: "90vh",
+    height: "85vh",
     border: props =>
       props.selections.length > 0 ? "1px solid rgb(165,175,194)" : "none"
   },

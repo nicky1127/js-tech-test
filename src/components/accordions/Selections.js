@@ -19,6 +19,8 @@ const constants = labels.Selections;
 const useStyles = makeStyles(theme => ({
   root: {
     width: "95%",
+    maxHeight: "95%",
+    overflowY: "scroll",
     margin: "10px auto"
   },
   header: {
