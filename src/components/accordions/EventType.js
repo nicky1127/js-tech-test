@@ -78,17 +78,14 @@ export const EventType = props => {
   }
 
   return (
-    <div className={clsx("EventType", classes.root)}>
+    <div className={clsx("EventType", classes.root)} data-testid="eventType">
       <Accordion expanded={expanded}>
         <AccordionSummary
           className={classes.header}
           expandIcon={
-            <DoubleArrow
-              fontSize="small"
-              className={classes.arrow}
-              onClick={() => setExpanded(!expanded)}
-            />
+            <DoubleArrow fontSize="small" className={classes.arrow} />
           }
+          onClick={() => setExpanded(!expanded)}
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
@@ -98,10 +95,10 @@ export const EventType = props => {
           <TableContainer component={Paper}>
             <Table className={classes.table} aria-label="simple table">
               <TableBody>
-                {rows.map(row => (
+                {rows.map((row, idx) => (
                   <TableRow
                     className={classes.row}
-                    key={row.name}
+                    key={`${row.name}_${idx}`}
                     onClick={() => onClickRow(row.eventId)}
                   >
                     <TableCell component="th" scope="row">

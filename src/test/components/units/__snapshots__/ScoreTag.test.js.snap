@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScoreTag Snapshot matchs 1`] = `
+<div
+  className="score makeStyles-root-1"
+  data-testid="scoreTag"
+>
+  undefined-undefined
+</div>
+`;

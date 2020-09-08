@@ -49,7 +49,7 @@ export const Selections = props => {
   }
 
   return (
-    <div className={clsx("Selections", classes.root)}>
+    <div className={clsx("Selections", classes.root)} data-testid="selections">
       <Accordion expanded={expanded}>
         <AccordionSummary
           className={classes.header}

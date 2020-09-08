@@ -1,13 +1,8 @@
 import * as types from "./_types";
+import state from "constants/defaultState";
 
 const initialState = {
-  liveEvents: [],
-  event: {},
-  markets: {},
-  isOddsDecimal: false,
-  loading: false,
-  error: {},
-  selections: []
+  ...state
 };
 
 const reducer = (state = initialState, action) => {

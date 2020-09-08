@@ -21,6 +21,7 @@ const ScoreTag = props => {
   return (
     <div
       className={clsx("score", classes.root)}
+      data-testid="scoreTag"
     >{`${scores.home}-${scores.away}`}</div>
   );
 };

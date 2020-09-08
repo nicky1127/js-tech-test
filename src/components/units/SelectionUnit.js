@@ -18,8 +18,9 @@ const useStyles = makeStyles(theme => ({
     paddingBottom: "15px",
     border: "1px solid rgb(179,191,211)"
   },
-  selectionHeader: { fontWeight: "600" },
+  selectionHeader: { fontWeight: "600", fontSize: "15px" },
   event: {
+    padding: "10px 0",
     fontSize: "12px",
     width: "80%"
   },
@@ -34,19 +35,22 @@ export const SelectionUnit = props => {
   const classes = useStyles();
   const { isOddsDecimal, outcome, removeSelection } = props;
 
-  const price = isOddsDecimal
-    ? outcome.price.decimal
-    : `${outcome.price.num}/${outcome.price.den}`;
+  const price =
+    outcome &&
+    outcome.price &&
+    (isOddsDecimal
+      ? outcome.price.decimal
+      : `${outcome.price.num}/${outcome.price.den}`);
 
   const onClickBtn = () => {
     removeSelection(outcome.outcomeId);
   };
 
   return (
-    <Box className={classes.selectionUnit}>
+    <Box className={classes.selectionUnit} data-testid="selectionUnit">
       <Grid container spacing={0}>
         <Grid item sm={10} className={classes.selectionHeader}>
-          {`${outcome.name}@`}
+          {`${outcome.name} @ `}
           <span style={{ color: "rgb(217,34,49)", fontWeight: "400" }}>
             {price}
           </span>
@@ -62,7 +66,7 @@ export const SelectionUnit = props => {
   );
 };
 
-SelectionUnit.defaultProps = {};
+SelectionUnit.defaultProps = { outcome: {} };
 
 SelectionUnit.propTypes = {};
 

@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BetSlipPanel Snapshot matchs 1`] = `
+<div
+  className="betSlipPanel makeStyles-root-1 makeStyles-root-6"
+  data-testid="betSlipPanel"
+>
+  <div
+    className="MuiBox-root MuiBox-root-8 makeStyles-header-2"
+  >
+    <div
+      className="MuiBox-root MuiBox-root-9 makeStyles-numFlag-4"
+    >
+      0
+    </div>
+    <p
+      className="MuiTypography-root makeStyles-headerText-5 MuiTypography-body1"
+    >
+      My Bet Slip
+    </p>
+  </div>
+  <div
+    className="MuiBox-root MuiBox-root-10 makeStyles-panelBody-3 makeStyles-panelBody-7"
+  >
+    <div
+      className="makeStyles-root-11"
+      data-testid="noSelection"
+    >
+      <p
+        className="MuiTypography-root makeStyles-noSelectText-12 MuiTypography-body1"
+      >
+        You have no selections in your Bet Slip
+      </p>
+      <div
+        className="MuiBox-root MuiBox-root-14 makeStyles-optionBox-13"
+      >
+        <p
+          className="MuiTypography-root MuiTypography-body1"
+        >
+          Go to In-Play bets
+        </p>
+      </div>
+      <div
+        className="MuiBox-root MuiBox-root-15 makeStyles-optionBox-13"
+      >
+        <p
+          className="MuiTypography-root MuiTypography-body1"
+        >
+          Build an Accumulator
+        </p>
+      </div>
+      <div
+        className="MuiBox-root MuiBox-root-16 makeStyles-optionBox-13"
+      >
+        <p
+          className="MuiTypography-root MuiTypography-body1"
+        >
+          Next Races
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -54,7 +54,10 @@ export const BetSlipPanel = ({ children, selections }) => {
   const classes = useStyles({ selections });
 
   return (
-    <div className={clsx("betSlipPanel", classes.root)}>
+    <div
+      className={clsx("betSlipPanel", classes.root)}
+      data-testid="betSlipPanel"
+    >
       <Box className={classes.header}>
         <Box className={classes.numFlag}>{selections.length}</Box>
         <Typography className={classes.headerText}>

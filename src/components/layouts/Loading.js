@@ -29,7 +29,7 @@ export const Loading = props => {
   const classes = useStyles();
 
   return (
-    <div className={clsx("loading", classes.root)}>
+    <div className={clsx("loading", classes.root)} data-testid='loading'>
       <CircularProgress className={classes.progress} />
     </div>
   );

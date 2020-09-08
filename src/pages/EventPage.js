@@ -58,7 +58,6 @@ const EventPage = props => {
   }, [eventId]);
 
   let content;
-  console.log("event", event);
 
   if (Array.isArray(markets) && markets.length > 0) {
     content = markets.map((market, index) => (
@@ -72,13 +71,13 @@ const EventPage = props => {
     minute: "numeric"
   });
   return (
-    <div className={clsx("eventPage", classes.root)}>
+    <div className={clsx("eventPage", classes.root)} data-testid="eventPage">
       <Box className={classes.detailContainer}>
-        <Typography className={classes.eventType} variant="span">
+        <Typography className={classes.eventType} component="span">
           {event.typeName}
         </Typography>
         <Typography
-          variant="span"
+          component="span"
           className={classes.eventDate}
         >{`${date} ${time}`}</Typography>
         <Grid container spacing={0} className={classes.eventName}>

@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EventPage Snapshot matchs 1`] = `
+<div
+  className="eventPage makeStyles-root-1"
+  data-testid="eventPage"
+>
+  <div
+    className="MuiBox-root MuiBox-root-10 makeStyles-detailContainer-4"
+  >
+    <span
+      className="MuiTypography-root makeStyles-eventType-5 MuiTypography-body1"
+    />
+    <span
+      className="MuiTypography-root makeStyles-eventDate-6 MuiTypography-body1"
+    >
+      Invalid Date Invalid Date
+    </span>
+    <div
+      className="MuiGrid-root makeStyles-eventName-7 MuiGrid-container"
+    >
+      <div
+        className="MuiGrid-root MuiGrid-item MuiGrid-grid-sm-5"
+        style={
+          Object {
+            "textAlign": "right",
+          }
+        }
+      />
+      <div
+        className="MuiGrid-root MuiGrid-item MuiGrid-grid-sm-2"
+        style={
+          Object {
+            "textAlign": "center",
+          }
+        }
+      >
+        V.S.
+      </div>
+      <div
+        className="MuiGrid-root MuiGrid-item MuiGrid-grid-sm-5"
+        style={
+          Object {
+            "textAlign": "left",
+          }
+        }
+      />
+    </div>
+    <div
+      className="MuiGrid-root makeStyles-eventScores-8 MuiGrid-container"
+    >
+      <div
+        className="MuiGrid-root MuiGrid-item MuiGrid-grid-sm-5"
+        style={
+          Object {
+            "textAlign": "right",
+          }
+        }
+      >
+        Home
+      </div>
+      <div
+        className="MuiGrid-root MuiGrid-item MuiGrid-grid-sm-2"
+        style={
+          Object {
+            "fontSize": "25px",
+            "textAlign": "center",
+          }
+        }
+      />
+      <div
+        className="MuiGrid-root MuiGrid-item MuiGrid-grid-sm-5"
+        style={
+          Object {
+            "textAlign": "left",
+          }
+        }
+      >
+        Away
+      </div>
+    </div>
+  </div>
+  <div
+    className="MuiBox-root MuiBox-root-11 makeStyles-marketContainer-9"
+  />
+</div>
+`;

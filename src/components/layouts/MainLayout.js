@@ -78,7 +78,7 @@ export const MainLayout = ({
   };
 
   return (
-    <div className={clsx("mainlayout", classes.root)}>
+    <div className={clsx("mainlayout", classes.root)} data-testid="mainLayout">
       {loading && <Loading />}
       <Box className={clsx("contentWrapper", classes.contentWrapper)}>
         <Box className={clsx("appBar", classes.appBar)}>

@@ -85,12 +85,11 @@ export const MarketType = props => {
   };
 
   const onClickNormalCell = outcome => {
-    
     addSelection(outcome);
   };
 
   return (
-    <div className={clsx("marketType", classes.root)}>
+    <div className={clsx("marketType", classes.root)} data-testid="marketType">
       <Accordion expanded={expanded}>
         <AccordionSummary
           className={classes.header}

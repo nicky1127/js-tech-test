@@ -36,7 +36,7 @@ export const NoSelection = () => {
   const classes = useStyles();
   const items = constants.options;
   return (
-    <div className={classes.root}>
+    <div className={classes.root} data-testid='noSelection'>
       <Typography className={classes.noSelectText}>
         {constants.description}
       </Typography>

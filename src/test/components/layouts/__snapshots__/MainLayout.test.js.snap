@@ -1,0 +1,134 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainLayout Snapshot matchs 1`] = `
+<div
+  className="mainlayout makeStyles-root-1"
+  data-testid="mainLayout"
+>
+  <div
+    className="MuiBox-root MuiBox-root-9 contentWrapper makeStyles-contentWrapper-2"
+  >
+    <div
+      className="MuiBox-root MuiBox-root-10 appBar makeStyles-appBar-3"
+    >
+      <span
+        className="MuiTypography-root makeStyles-text-5 MuiTypography-body1"
+      >
+        My Bets
+      </span>
+      <div
+        className="makeStyles-logo-4"
+      />
+      <div
+        className="MuiFormControl-root makeStyles-formControl-6"
+      >
+        <label
+          className="MuiFormLabel-root MuiInputLabel-root makeStyles-label-8 MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
+          data-shrink={true}
+          id="demo-simple-select-label"
+        >
+          Odds Format
+        </label>
+        <div
+          className="MuiInputBase-root MuiInput-root MuiInput-underline makeStyles-select-7 MuiInputBase-formControl MuiInput-formControl"
+          onClick={[Function]}
+        >
+          <div
+            aria-haspopup="listbox"
+            aria-labelledby="demo-simple-select-label demo-simple-select"
+            className="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input"
+            id="demo-simple-select"
+            onBlur={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onMouseDown={[Function]}
+            role="button"
+            tabIndex={0}
+          >
+            Fractional
+          </div>
+          <input
+            aria-hidden={true}
+            className="MuiSelect-nativeInput"
+            onAnimationStart={[Function]}
+            onChange={[Function]}
+            required={false}
+            tabIndex={-1}
+            value={false}
+          />
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root MuiSelect-icon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M7 10l5 5 5-5z"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="betSlipPanel makeStyles-root-11 makeStyles-root-16"
+    data-testid="betSlipPanel"
+  >
+    <div
+      className="MuiBox-root MuiBox-root-18 makeStyles-header-12"
+    >
+      <div
+        className="MuiBox-root MuiBox-root-19 makeStyles-numFlag-14"
+      >
+        0
+      </div>
+      <p
+        className="MuiTypography-root makeStyles-headerText-15 MuiTypography-body1"
+      >
+        My Bet Slip
+      </p>
+    </div>
+    <div
+      className="MuiBox-root MuiBox-root-20 makeStyles-panelBody-13 makeStyles-panelBody-17"
+    >
+      <div
+        className="makeStyles-root-21"
+        data-testid="noSelection"
+      >
+        <p
+          className="MuiTypography-root makeStyles-noSelectText-22 MuiTypography-body1"
+        >
+          You have no selections in your Bet Slip
+        </p>
+        <div
+          className="MuiBox-root MuiBox-root-24 makeStyles-optionBox-23"
+        >
+          <p
+            className="MuiTypography-root MuiTypography-body1"
+          >
+            Go to In-Play bets
+          </p>
+        </div>
+        <div
+          className="MuiBox-root MuiBox-root-25 makeStyles-optionBox-23"
+        >
+          <p
+            className="MuiTypography-root MuiTypography-body1"
+          >
+            Build an Accumulator
+          </p>
+        </div>
+        <div
+          className="MuiBox-root MuiBox-root-26 makeStyles-optionBox-23"
+        >
+          <p
+            className="MuiTypography-root MuiTypography-body1"
+          >
+            Next Races
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

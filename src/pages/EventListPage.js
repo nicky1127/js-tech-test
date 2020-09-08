@@ -35,7 +35,7 @@ const useStyles = makeStyles({
 const EventListPage = props => {
   const classes = useStyles();
 
-  const { eventGroup,getLiveEventList } = props;
+  const { eventGroup, getLiveEventList } = props;
   const [expanded, setExpanded] = useState(true);
 
   let content;
@@ -49,19 +49,14 @@ const EventListPage = props => {
   useEffect(() => {
     getLiveEventList(true);
   }, []);
-  
+
   return (
-    <div className={clsx("eventListPage", classes.root)}>
+    <div className={clsx("eventListPage", classes.root)} data-testid='eventListPage'>
       <Accordion expanded={expanded}>
         <AccordionSummary
           className={classes.header}
-          expandIcon={
-            <ExpandMore
-              fontSize="large"
-              className={classes.icon}
-              onClick={() => setExpanded(!expanded)}
-            />
-          }
+          expandIcon={<ExpandMore fontSize="large" className={classes.icon} />}
+          onClick={() => setExpanded(!expanded)}
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
