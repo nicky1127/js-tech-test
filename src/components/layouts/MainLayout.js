@@ -37,9 +37,6 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     alignItems: "center"
   },
-  logo: {
-    flex: "20 20 auto"
-  },
   text: {
     color: "#fff",
     fontSize: "12px",
@@ -69,6 +66,24 @@ const useStyles = makeStyles(theme => ({
   arrowIcon: {
     transform: "rotate(180deg)",
     color: "#fff"
+  },
+  logo: {
+    flex: "20 20 auto",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  logoItem: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    color: " #fff",
+    width: "80px",
+    height: "40px",
+    fontSize: "20px",
+    backgroundImage: 'linear-gradient(rgb(223,52,66),rgb(183,0,6))',
+    // backgroundColor: "rgb(183,0,6)",
+    borderRadius: "2px"
   }
 }));
 
@@ -116,7 +131,9 @@ export const MainLayout = ({
           <Typography className={classes.text} component="span">
             {constants.links.MY_BETS}
           </Typography>
-          <div className={classes.logo}></div>
+          <div className={classes.logo}>
+            <Box className={classes.logoItem}>Let's Bet</Box>
+          </div>
           {/* <Typography className={classes.text} component="span">
             {constants.links.JOIN}
           </Typography>
