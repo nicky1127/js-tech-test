@@ -53,7 +53,6 @@ const reducer = (state = initialState, action) => {
   }
 
   if (action.type === types.REMOVE_SELECTION) {
-    console.log("huu");
     const arr = state.selections.filter(
       selection => selection.outcomeId !== action.payload
     );

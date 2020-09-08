@@ -13,7 +13,7 @@ import {
 } from "@material-ui/core";
 import Loading from "./Loading";
 import BetSlipPanel from "components/layouts/BetSlipPanel";
-import { setOddsForamt } from "redux/_actions";
+import { setOddsFormat } from "redux/_actions";
 import labels from "constants/labels";
 
 const constants = labels.MainLayout;
@@ -69,12 +69,12 @@ export const MainLayout = ({
   children,
   loading,
   isOddsDecimal,
-  setOddsForamt
+  setOddsFormat 
 }) => {
   const classes = useStyles();
 
   const handleChange = evt => {
-    setOddsForamt(evt.target.value);
+    setOddsFormat (evt.target.value);
   };
 
   return (
@@ -124,7 +124,7 @@ const mapStateToProps = state => {
   return { loading, isOddsDecimal };
 };
 
-const ConnectedMainLayout = connect(mapStateToProps, { setOddsForamt })(
+const ConnectedMainLayout = connect(mapStateToProps, { setOddsFormat })(
   MainLayout
 );
 
