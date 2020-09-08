@@ -6,82 +6,256 @@ exports[`EventPage Snapshot matchs 1`] = `
   data-testid="eventPage"
 >
   <div
-    className="MuiBox-root MuiBox-root-10 makeStyles-detailContainer-4"
+    className="mainlayout makeStyles-root-11"
+    data-testid="mainLayout"
   >
-    <span
-      className="MuiTypography-root makeStyles-eventType-5 MuiTypography-body1"
-    />
-    <span
-      className="MuiTypography-root makeStyles-eventDate-6 MuiTypography-body1"
-    >
-      Invalid Date Invalid Date
-    </span>
     <div
-      className="MuiGrid-root makeStyles-eventName-7 MuiGrid-container"
+      className="MuiBox-root MuiBox-root-21 contentWrapper makeStyles-contentWrapper-12"
     >
       <div
-        className="MuiGrid-root MuiGrid-item MuiGrid-grid-sm-5"
-        style={
-          Object {
-            "textAlign": "right",
-          }
-        }
-      />
-      <div
-        className="MuiGrid-root MuiGrid-item MuiGrid-grid-sm-2"
-        style={
-          Object {
-            "textAlign": "center",
-          }
-        }
+        className="MuiBox-root MuiBox-root-22 appBar makeStyles-appBar-13"
       >
-        V.S.
+        <button
+          aria-label="back to live events list page"
+          className="MuiButtonBase-root MuiIconButton-root"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root makeStyles-arrowIcon-18"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 8V4l8 8-8 8v-4H4V8z"
+              />
+            </svg>
+          </span>
+        </button>
+        <span
+          className="MuiTypography-root makeStyles-text-14 MuiTypography-body1"
+        >
+          My Bets
+        </span>
+        <div
+          className="makeStyles-logo-19"
+        >
+          <div
+            className="MuiBox-root MuiBox-root-23 makeStyles-logoItem-20"
+          >
+            Let's Bet
+          </div>
+        </div>
+        <div
+          className="MuiFormControl-root makeStyles-formControl-15"
+        >
+          <label
+            className="MuiFormLabel-root MuiInputLabel-root makeStyles-label-17 MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
+            data-shrink={true}
+            id="demo-simple-select-label"
+          >
+            Odds Format
+          </label>
+          <div
+            className="MuiInputBase-root MuiInput-root MuiInput-underline makeStyles-select-16 MuiInputBase-formControl MuiInput-formControl"
+            onClick={[Function]}
+          >
+            <div
+              aria-haspopup="listbox"
+              aria-labelledby="demo-simple-select-label demo-simple-select"
+              className="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input"
+              id="demo-simple-select"
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseDown={[Function]}
+              role="button"
+              tabIndex={0}
+            >
+              Fractional
+            </div>
+            <input
+              aria-hidden={true}
+              className="MuiSelect-nativeInput"
+              onAnimationStart={[Function]}
+              onChange={[Function]}
+              required={false}
+              tabIndex={-1}
+              value={false}
+            />
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root MuiSelect-icon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7 10l5 5 5-5z"
+              />
+            </svg>
+          </div>
+        </div>
       </div>
       <div
-        className="MuiGrid-root MuiGrid-item MuiGrid-grid-sm-5"
-        style={
-          Object {
-            "textAlign": "left",
-          }
-        }
-      />
+        className="MuiBox-root MuiBox-root-24 makeStyles-wrapper-2"
+      >
+        <div
+          className="MuiBox-root MuiBox-root-25 makeStyles-detailContainer-5"
+        >
+          <span
+            className="MuiTypography-root makeStyles-eventType-6 MuiTypography-body1"
+          />
+          <span
+            className="MuiTypography-root makeStyles-eventDate-7 MuiTypography-body1"
+          >
+            Invalid Date Invalid Date
+          </span>
+          <div
+            className="MuiGrid-root makeStyles-eventName-8 MuiGrid-container"
+          >
+            <div
+              className="MuiGrid-root MuiGrid-item MuiGrid-grid-sm-5"
+              style={
+                Object {
+                  "textAlign": "right",
+                }
+              }
+            />
+            <div
+              className="MuiGrid-root MuiGrid-item MuiGrid-grid-sm-2"
+              style={
+                Object {
+                  "textAlign": "center",
+                }
+              }
+            >
+              V.S.
+            </div>
+            <div
+              className="MuiGrid-root MuiGrid-item MuiGrid-grid-sm-5"
+              style={
+                Object {
+                  "textAlign": "left",
+                }
+              }
+            />
+          </div>
+          <div
+            className="MuiGrid-root makeStyles-eventScores-9 MuiGrid-container"
+          >
+            <div
+              className="MuiGrid-root MuiGrid-item MuiGrid-grid-sm-5"
+              style={
+                Object {
+                  "textAlign": "right",
+                }
+              }
+            >
+              Home
+            </div>
+            <div
+              className="MuiGrid-root MuiGrid-item MuiGrid-grid-sm-2"
+              style={
+                Object {
+                  "fontSize": "25px",
+                  "textAlign": "center",
+                }
+              }
+            />
+            <div
+              className="MuiGrid-root MuiGrid-item MuiGrid-grid-sm-5"
+              style={
+                Object {
+                  "textAlign": "left",
+                }
+              }
+            >
+              Away
+            </div>
+          </div>
+        </div>
+        <div
+          className="MuiBox-root MuiBox-root-26 makeStyles-marketContainer-10"
+        />
+      </div>
     </div>
     <div
-      className="MuiGrid-root makeStyles-eventScores-8 MuiGrid-container"
+      className="betSlipPanel makeStyles-root-27 makeStyles-root-32"
+      data-testid="betSlipPanel"
     >
       <div
-        className="MuiGrid-root MuiGrid-item MuiGrid-grid-sm-5"
-        style={
-          Object {
-            "textAlign": "right",
-          }
-        }
+        className="MuiBox-root MuiBox-root-34 makeStyles-header-28"
       >
-        Home
+        <div
+          className="MuiBox-root MuiBox-root-35 makeStyles-numFlag-30"
+        >
+          0
+        </div>
+        <p
+          className="MuiTypography-root makeStyles-headerText-31 MuiTypography-body1"
+        >
+          My Bet Slip
+        </p>
       </div>
       <div
-        className="MuiGrid-root MuiGrid-item MuiGrid-grid-sm-2"
-        style={
-          Object {
-            "fontSize": "25px",
-            "textAlign": "center",
-          }
-        }
-      />
-      <div
-        className="MuiGrid-root MuiGrid-item MuiGrid-grid-sm-5"
-        style={
-          Object {
-            "textAlign": "left",
-          }
-        }
+        className="MuiBox-root MuiBox-root-36 makeStyles-panelBody-29 makeStyles-panelBody-33"
       >
-        Away
+        <div
+          className="makeStyles-root-37"
+          data-testid="noSelection"
+        >
+          <p
+            className="MuiTypography-root makeStyles-noSelectText-38 MuiTypography-body1"
+          >
+            You have no selections in your Bet Slip
+          </p>
+          <div
+            className="MuiBox-root MuiBox-root-40 makeStyles-optionBox-39"
+          >
+            <p
+              className="MuiTypography-root MuiTypography-body1"
+            >
+              Go to In-Play bets
+            </p>
+          </div>
+          <div
+            className="MuiBox-root MuiBox-root-41 makeStyles-optionBox-39"
+          >
+            <p
+              className="MuiTypography-root MuiTypography-body1"
+            >
+              Build an Accumulator
+            </p>
+          </div>
+          <div
+            className="MuiBox-root MuiBox-root-42 makeStyles-optionBox-39"
+          >
+            <p
+              className="MuiTypography-root MuiTypography-body1"
+            >
+              Next Races
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <div
-    className="MuiBox-root MuiBox-root-11 makeStyles-marketContainer-9"
-  />
 </div>
 `;

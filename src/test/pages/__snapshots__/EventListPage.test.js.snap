@@ -6,203 +6,317 @@ exports[`EventListPage Snapshot matchs 1`] = `
   data-testid="eventListPage"
 >
   <div
-    className="MuiPaper-root MuiAccordion-root Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+    className="mainlayout makeStyles-root-6"
+    data-testid="mainLayout"
   >
     <div
-      aria-controls="panel1a-content"
-      aria-disabled={false}
-      aria-expanded={true}
-      className="MuiButtonBase-root MuiAccordionSummary-root makeStyles-header-2 Mui-expanded"
-      id="panel1a-header"
-      onBlur={[Function]}
-      onClick={[Function]}
-      onDragLeave={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      role="button"
-      tabIndex={0}
+      className="MuiBox-root MuiBox-root-16 contentWrapper makeStyles-contentWrapper-7"
     >
       <div
-        className="MuiAccordionSummary-content Mui-expanded"
+        className="MuiBox-root MuiBox-root-17 appBar makeStyles-appBar-8"
       >
-        <p
-          className="MuiTypography-root MuiTypography-body1"
+        <button
+          aria-label="back to live events list page"
+          className="MuiButtonBase-root MuiIconButton-root"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
         >
-          Football
-        </p>
-      </div>
-      <div
-        aria-disabled={false}
-        aria-hidden={true}
-        className="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
-        onBlur={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        role={null}
-        tabIndex={null}
-      >
-        <span
-          className="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden={true}
-            className="MuiSvgIcon-root makeStyles-icon-3 MuiSvgIcon-fontSizeLarge"
-            focusable="false"
-            viewBox="0 0 24 24"
+          <span
+            className="MuiIconButton-label"
           >
-            <path
-              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-            />
-          </svg>
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root makeStyles-arrowIcon-13"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 8V4l8 8-8 8v-4H4V8z"
+              />
+            </svg>
+          </span>
+        </button>
+        <span
+          className="MuiTypography-root makeStyles-text-9 MuiTypography-body1"
+        >
+          My Bets
         </span>
-      </div>
-    </div>
-    <div
-      className="MuiCollapse-container MuiCollapse-entered"
-      style={
-        Object {
-          "minHeight": "0px",
-        }
-      }
-    >
-      <div
-        className="MuiCollapse-wrapper"
-      >
         <div
-          className="MuiCollapse-wrapperInner"
+          className="makeStyles-logo-14"
         >
           <div
-            aria-labelledby="panel1a-header"
-            id="panel1a-content"
-            role="region"
+            className="MuiBox-root MuiBox-root-18 makeStyles-logoItem-15"
+          >
+            Let's Bet
+          </div>
+        </div>
+        <div
+          className="MuiFormControl-root makeStyles-formControl-10"
+        >
+          <label
+            className="MuiFormLabel-root MuiInputLabel-root makeStyles-label-12 MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
+            data-shrink={true}
+            id="demo-simple-select-label"
+          >
+            Odds Format
+          </label>
+          <div
+            className="MuiInputBase-root MuiInput-root MuiInput-underline makeStyles-select-11 MuiInputBase-formControl MuiInput-formControl"
+            onClick={[Function]}
           >
             <div
-              className="MuiAccordionDetails-root makeStyles-details-4"
+              aria-haspopup="listbox"
+              aria-labelledby="demo-simple-select-label demo-simple-select"
+              className="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input"
+              id="demo-simple-select"
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseDown={[Function]}
+              role="button"
+              tabIndex={0}
+            >
+              Fractional
+            </div>
+            <input
+              aria-hidden={true}
+              className="MuiSelect-nativeInput"
+              onAnimationStart={[Function]}
+              onChange={[Function]}
+              required={false}
+              tabIndex={-1}
+              value={false}
+            />
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root MuiSelect-icon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7 10l5 5 5-5z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div
+        className="MuiBox-root MuiBox-root-19 makeStyles-wrapper-2"
+      >
+        <div
+          className="MuiPaper-root MuiAccordion-root Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+        >
+          <div
+            aria-controls="panel1a-content"
+            aria-disabled={false}
+            aria-expanded={true}
+            className="MuiButtonBase-root MuiAccordionSummary-root makeStyles-header-3 Mui-expanded"
+            id="panel1a-header"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="button"
+            tabIndex={0}
+          >
+            <div
+              className="MuiAccordionSummary-content Mui-expanded"
+            >
+              <p
+                className="MuiTypography-root MuiTypography-body1"
+              >
+                Football
+              </p>
+            </div>
+            <div
+              aria-disabled={false}
+              aria-hidden={true}
+              className="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
+              onBlur={[Function]}
+              onDragLeave={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              onMouseDown={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              role={null}
+              tabIndex={null}
+            >
+              <span
+                className="MuiIconButton-label"
+              >
+                <svg
+                  aria-hidden={true}
+                  className="MuiSvgIcon-root makeStyles-icon-4 MuiSvgIcon-fontSizeLarge"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+          <div
+            className="MuiCollapse-container MuiCollapse-entered"
+            style={
+              Object {
+                "minHeight": "0px",
+              }
+            }
+          >
+            <div
+              className="MuiCollapse-wrapper"
             >
               <div
-                className="EventType makeStyles-root-5"
-                data-testid="eventType"
+                className="MuiCollapse-wrapperInner"
               >
                 <div
-                  className="MuiPaper-root MuiAccordion-root Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                  aria-labelledby="panel1a-header"
+                  id="panel1a-content"
+                  role="region"
                 >
                   <div
-                    aria-controls="panel1a-content"
-                    aria-disabled={false}
-                    aria-expanded={true}
-                    className="MuiButtonBase-root MuiAccordionSummary-root makeStyles-header-6 Mui-expanded"
-                    id="panel1a-header"
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onDragLeave={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyUp={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    role="button"
-                    tabIndex={0}
+                    className="MuiAccordionDetails-root makeStyles-details-5"
                   >
                     <div
-                      className="MuiAccordionSummary-content Mui-expanded"
-                    >
-                      <p
-                        className="MuiTypography-root MuiTypography-body1"
-                      >
-                        Football Live
-                      </p>
-                    </div>
-                    <div
-                      aria-disabled={false}
-                      aria-hidden={true}
-                      className="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
-                      onBlur={[Function]}
-                      onDragLeave={[Function]}
-                      onFocus={[Function]}
-                      onKeyDown={[Function]}
-                      onKeyUp={[Function]}
-                      onMouseDown={[Function]}
-                      onMouseLeave={[Function]}
-                      onMouseUp={[Function]}
-                      onTouchEnd={[Function]}
-                      onTouchMove={[Function]}
-                      onTouchStart={[Function]}
-                      role={null}
-                      tabIndex={null}
-                    >
-                      <span
-                        className="MuiIconButton-label"
-                      >
-                        <svg
-                          aria-hidden={true}
-                          className="MuiSvgIcon-root makeStyles-arrow-10 MuiSvgIcon-fontSizeSmall"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M15.5 5H11l5 7-5 7h4.5l5-7z"
-                          />
-                          <path
-                            d="M8.5 5H4l5 7-5 7h4.5l5-7z"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-                  <div
-                    className="MuiCollapse-container MuiCollapse-entered"
-                    style={
-                      Object {
-                        "minHeight": "0px",
-                      }
-                    }
-                  >
-                    <div
-                      className="MuiCollapse-wrapper"
+                      className="EventType makeStyles-root-20"
+                      data-testid="eventType"
                     >
                       <div
-                        className="MuiCollapse-wrapperInner"
+                        className="MuiPaper-root MuiAccordion-root Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
                       >
                         <div
-                          aria-labelledby="panel1a-header"
-                          id="panel1a-content"
-                          role="region"
+                          aria-controls="panel1a-content"
+                          aria-disabled={false}
+                          aria-expanded={true}
+                          className="MuiButtonBase-root MuiAccordionSummary-root makeStyles-header-21 Mui-expanded"
+                          id="panel1a-header"
+                          onBlur={[Function]}
+                          onClick={[Function]}
+                          onDragLeave={[Function]}
+                          onFocus={[Function]}
+                          onKeyDown={[Function]}
+                          onKeyUp={[Function]}
+                          onMouseDown={[Function]}
+                          onMouseLeave={[Function]}
+                          onMouseUp={[Function]}
+                          onTouchEnd={[Function]}
+                          onTouchMove={[Function]}
+                          onTouchStart={[Function]}
+                          role="button"
+                          tabIndex={0}
                         >
                           <div
-                            className="MuiAccordionDetails-root makeStyles-details-9"
+                            className="MuiAccordionSummary-content Mui-expanded"
+                          >
+                            <p
+                              className="MuiTypography-root MuiTypography-body1"
+                            >
+                              Football Live
+                            </p>
+                          </div>
+                          <div
+                            aria-disabled={false}
+                            aria-hidden={true}
+                            className="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
+                            onBlur={[Function]}
+                            onDragLeave={[Function]}
+                            onFocus={[Function]}
+                            onKeyDown={[Function]}
+                            onKeyUp={[Function]}
+                            onMouseDown={[Function]}
+                            onMouseLeave={[Function]}
+                            onMouseUp={[Function]}
+                            onTouchEnd={[Function]}
+                            onTouchMove={[Function]}
+                            onTouchStart={[Function]}
+                            role={null}
+                            tabIndex={null}
+                          >
+                            <span
+                              className="MuiIconButton-label"
+                            >
+                              <svg
+                                aria-hidden={true}
+                                className="MuiSvgIcon-root makeStyles-arrow-25 MuiSvgIcon-fontSizeSmall"
+                                focusable="false"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M15.5 5H11l5 7-5 7h4.5l5-7z"
+                                />
+                                <path
+                                  d="M8.5 5H4l5 7-5 7h4.5l5-7z"
+                                />
+                              </svg>
+                            </span>
+                          </div>
+                        </div>
+                        <div
+                          className="MuiCollapse-container MuiCollapse-entered"
+                          style={
+                            Object {
+                              "minHeight": "0px",
+                            }
+                          }
+                        >
+                          <div
+                            className="MuiCollapse-wrapper"
                           >
                             <div
-                              className="MuiPaper-root MuiTableContainer-root MuiPaper-elevation1 MuiPaper-rounded"
+                              className="MuiCollapse-wrapperInner"
                             >
-                              <table
-                                aria-label="simple table"
-                                className="MuiTable-root makeStyles-table-7"
-                                role={null}
+                              <div
+                                aria-labelledby="panel1a-header"
+                                id="panel1a-content"
+                                role="region"
                               >
-                                <tbody
-                                  className="MuiTableBody-root"
-                                  role={null}
-                                />
-                              </table>
+                                <div
+                                  className="MuiAccordionDetails-root makeStyles-details-24"
+                                >
+                                  <div
+                                    className="MuiPaper-root MuiTableContainer-root MuiPaper-elevation1 MuiPaper-rounded"
+                                  >
+                                    <table
+                                      aria-label="simple table"
+                                      className="MuiTable-root makeStyles-table-22"
+                                      role={null}
+                                    >
+                                      <tbody
+                                        className="MuiTableBody-root"
+                                        role={null}
+                                      />
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -212,6 +326,66 @@ exports[`EventListPage Snapshot matchs 1`] = `
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="betSlipPanel makeStyles-root-26 makeStyles-root-31"
+      data-testid="betSlipPanel"
+    >
+      <div
+        className="MuiBox-root MuiBox-root-33 makeStyles-header-27"
+      >
+        <div
+          className="MuiBox-root MuiBox-root-34 makeStyles-numFlag-29"
+        >
+          0
+        </div>
+        <p
+          className="MuiTypography-root makeStyles-headerText-30 MuiTypography-body1"
+        >
+          My Bet Slip
+        </p>
+      </div>
+      <div
+        className="MuiBox-root MuiBox-root-35 makeStyles-panelBody-28 makeStyles-panelBody-32"
+      >
+        <div
+          className="makeStyles-root-36"
+          data-testid="noSelection"
+        >
+          <p
+            className="MuiTypography-root makeStyles-noSelectText-37 MuiTypography-body1"
+          >
+            You have no selections in your Bet Slip
+          </p>
+          <div
+            className="MuiBox-root MuiBox-root-39 makeStyles-optionBox-38"
+          >
+            <p
+              className="MuiTypography-root MuiTypography-body1"
+            >
+              Go to In-Play bets
+            </p>
+          </div>
+          <div
+            className="MuiBox-root MuiBox-root-40 makeStyles-optionBox-38"
+          >
+            <p
+              className="MuiTypography-root MuiTypography-body1"
+            >
+              Build an Accumulator
+            </p>
+          </div>
+          <div
+            className="MuiBox-root MuiBox-root-41 makeStyles-optionBox-38"
+          >
+            <p
+              className="MuiTypography-root MuiTypography-body1"
+            >
+              Next Races
+            </p>
           </div>
         </div>
       </div>
