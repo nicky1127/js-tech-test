@@ -15,8 +15,12 @@ import {
   TableCell,
   TableBody
 } from "@material-ui/core";
-import { ExpandMore } from "@material-ui/icons";
-import { getOutcomeListByIds, addSelection } from "redux/_actions";
+import { ExpandMore, CheckCircleRounded } from "@material-ui/icons";
+import {
+  getOutcomeListByIds,
+  addSelection,
+  removeSelection
+} from "redux/_actions";
 import labels from "constants/labels";
 
 const constants = labels.MarketType;
@@ -55,6 +59,14 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: "rgb(239,244,252)",
       cursor: "pointer"
     }
+  },
+  selectedCell: {
+    color: "rgb(88,150,226)",
+    backgroundColor: "rgb(225,232,243)",
+    "&:hover": {
+      backgroundColor: "rgb(239,244,252)",
+      cursor: "pointer"
+    }
   }
 }));
 
@@ -65,7 +77,9 @@ export const MarketType = props => {
     market,
     isOddsDecimal,
     getOutcomeListByIds,
-    addSelection
+    addSelection,
+    removeSelection,
+    selections
   } = props;
   const [expanded, setExpanded] = useState(false);
 
@@ -82,6 +96,10 @@ export const MarketType = props => {
     if (!Object.values(market.outcomeList).length) {
       getOutcomeListByIds(market.outcomes);
     }
+  };
+
+  const onClickSelectedCell = outcome => {
+    removeSelection(outcome.outcomeId);
   };
 
   const onClickNormalCell = outcome => {
@@ -105,12 +123,15 @@ export const MarketType = props => {
             <Table className={classes.table} aria-label="simple table">
               <TableBody>
                 {rows &&
-                  rows.map(row => {
+                  rows.map((row, idx) => {
+                    const isSelected = selections.find(
+                      selection => selection.outcomeId === row.outcomeId
+                    );
                     const price = isOddsDecimal
                       ? row.price.decimal
                       : `${row.price.num}/${row.price.den}`;
                     return (
-                      <TableRow key={row.name}>
+                      <TableRow key={`${row.name}_${idx}`}>
                         <TableCell component="th" scope="row">
                           {row.name}
                         </TableCell>
@@ -120,6 +141,14 @@ export const MarketType = props => {
                             align="center"
                           >
                             Susp
+                          </TableCell>
+                        ) : isSelected ? (
+                          <TableCell
+                            className={classes.selectedCell}
+                            align="center"
+                            onClick={() => onClickSelectedCell(row)}
+                          >
+                            <CheckCircleRounded fontSize="small" />
                           </TableCell>
                         ) : (
                           <TableCell
@@ -147,12 +176,13 @@ MarketType.defaultProps = { market: {} };
 MarketType.propTypes = {};
 
 const mapStateToProps = state => {
-  const { isOddsDecimal } = state;
-  return { isOddsDecimal };
+  const { isOddsDecimal, selections } = state;
+  return { isOddsDecimal, selections };
 };
 
 const ConnectedMarketType = connect(mapStateToProps, {
   getOutcomeListByIds,
+  removeSelection,
   addSelection
 })(MarketType);
 
