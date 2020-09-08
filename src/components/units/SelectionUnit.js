@@ -27,7 +27,10 @@ const useStyles = makeStyles(theme => ({
   crossIcon: {
     display: "flex",
     alignItems: "flex-start",
-    justifuContent: "flex-end"
+    justifuContent: "flex-end",
+    "&:hover": {
+      cursor: "pointer"
+    }
   }
 }));
 

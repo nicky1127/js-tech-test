@@ -45,6 +45,8 @@ In order to complete an MVP version of this task, there are some tasks I have no
 
 The subscription feature could be added to keep this app up to date with the latest price and status of makets. What I would do is to send the subscribing calls to track those event, market and outcome that are presented in the current page by their id, and immediately update their values in redux store which can cause the components to re-render when values change.
 
+The deffirence in layout of market is not considered in this build yet and could be realised by making some other custom components to serve the needs based on market type. 
+
 Also from a testing's perspective, I would write up more test cases on react component to examine the outcome triggered by user's interaction such us clicking buttons, adding /removing selections etc. This enhancement can test our app from a user's point of view and reflect the user journey. 
 
 
