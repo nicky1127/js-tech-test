@@ -59,6 +59,9 @@ const reducer = (state = initialState, action) => {
     return { ...state, selections: arr };
   }
 
+  if (action.type === types.REMOVE_ALL_SELECTION) {
+    return { ...state, selections: [] };
+  }
   return state;
 };
 

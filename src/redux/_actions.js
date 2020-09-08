@@ -69,3 +69,8 @@ export const removeSelection = payload => {
   const obj = { type: types.REMOVE_SELECTION, payload };
   return obj;
 };
+
+export const removeAllSelection = ()=> {
+  const obj = { type: types.REMOVE_ALL_SELECTION};
+  return obj;
+};

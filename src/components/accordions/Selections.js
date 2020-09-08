@@ -7,11 +7,12 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
-  Typography
+  Typography,
+  Box
 } from "@material-ui/core";
-import { ExpandMore } from "@material-ui/icons";
+import { ExpandMore, Clear } from "@material-ui/icons";
 import SelectionUnit from "components/units/SelectionUnit";
-import { getEventById } from "redux/_actions";
+import { getEventById, removeAllSelection } from "redux/_actions";
 import labels from "constants/labels";
 
 const constants = labels.Selections;
@@ -33,12 +34,30 @@ const useStyles = makeStyles(theme => ({
   details: {
     padding: 0,
     flexDirection: "column"
+  },
+  //remove all selections
+  rmAll: {
+    marginTop: "10px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontWeight: "500",
+    width: "60%",
+    fontSize: "12px",
+    height: "30px",
+    padding: "4px",
+    border: "1px solid rgb(179,191,211)",
+    borderRadius: "5px",
+    "&:hover": {
+      backgroundColor: "rgb(239,244,252)",
+      cursor: "pointer"
+    }
   }
 }));
 
 export const Selections = props => {
   const classes = useStyles();
-  const { selections } = props;
+  const { selections, removeAllSelection } = props;
   const [expanded, setExpanded] = useState(true);
 
   let content;
@@ -47,6 +66,10 @@ export const Selections = props => {
       <SelectionUnit outcome={selection} />
     ));
   }
+
+  const onClickRemoveAll = () => {
+    removeAllSelection();
+  };
 
   return (
     <div className={clsx("Selections", classes.root)} data-testid="selections">
@@ -64,6 +87,10 @@ export const Selections = props => {
           {content}
         </AccordionDetails>
       </Accordion>
+      <Box className={classes.rmAll} onClick={onClickRemoveAll}>
+        <Clear fontSize="small" />
+        Remove all selections
+      </Box>
     </div>
   );
 };
@@ -78,7 +105,8 @@ const mapStateToProps = state => {
 };
 
 const ConnectedSelections = connect(mapStateToProps, {
-  getEventById
+  getEventById,
+  removeAllSelection
 })(Selections);
 
 export default ConnectedSelections;
