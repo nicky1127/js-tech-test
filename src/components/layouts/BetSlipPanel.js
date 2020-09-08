@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
   },
   panelBody: {
     width: "100%",
-    height: "85vh",
+    height: "88vh",
     border: props =>
       props.selections.length > 0 ? "1px solid rgb(165,175,194)" : "none"
   },

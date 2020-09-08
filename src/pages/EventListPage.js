@@ -40,9 +40,10 @@ const useStyles = makeStyles({
 const EventListPage = props => {
   const classes = useStyles();
 
-  const { eventGroup, getLiveEventList } = props;
+  const { eventGroup, getLiveEventList, location } = props;
   const [expanded, setExpanded] = useState(true);
 
+ 
   let content;
 
   if (Array.isArray(eventGroup) && eventGroup.length > 0) {
@@ -60,7 +61,7 @@ const EventListPage = props => {
       className={clsx("eventListPage", classes.root)}
       data-testid="eventListPage"
     >
-      <MainLayout>
+      <MainLayout path={location.pathname}>
         <Box className={classes.wrapper}>
           <Accordion expanded={expanded}>
             <AccordionSummary

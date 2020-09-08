@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { Redirect, useHistory } from "react-router-dom";
 import clsx from "clsx";
 import { connect } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
@@ -75,22 +76,43 @@ export const MainLayout = ({
   children,
   loading,
   isOddsDecimal,
-  setOddsFormat
+  setOddsFormat,
+  path
 }) => {
   const classes = useStyles();
+
+  const [redirect, setRedirect] = useState(false);
 
   const handleChange = evt => {
     setOddsFormat(evt.target.value);
   };
+
+  const onClickBack = () => {
+    setRedirect(true);
+  };
+  if (redirect) {
+    return <Redirect to={"/"} />;
+  }
+
+  let arrowDom;
+
+  if (path !== "/") {
+    arrowDom = (
+      <IconButton
+        aria-label="back to live events list page"
+        onClick={onClickBack}
+      >
+        <Forward className={classes.arrowIcon} />
+      </IconButton>
+    );
+  }
 
   return (
     <div className={clsx("mainlayout", classes.root)} data-testid="mainLayout">
       {loading && <Loading />}
       <Box className={clsx("contentWrapper", classes.contentWrapper)}>
         <Box className={clsx("appBar", classes.appBar)}>
-          <IconButton aria-label="back to live events list page">
-            <Forward className={classes.arrowIcon} />
-          </IconButton>
+          {arrowDom}
           <Typography className={classes.text} component="span">
             {constants.links.MY_BETS}
           </Typography>
