@@ -5,11 +5,17 @@ import { makeStyles } from "@material-ui/core/styles";
 import { connect } from "react-redux";
 import { Box, Typography, Grid } from "@material-ui/core";
 import MarketType from "components/accordions/MarketType";
+import MainLayout from "components/layouts/MainLayout";
 import { getLiveEventList, getEventById } from "redux/_actions";
 import { sortMarketsByName } from "redux/selectors";
 
 const useStyles = makeStyles({
-  root: {},
+  root: {
+    width: "100%"
+  },
+  wrapper: {
+    margin: "10px"
+  },
   header: {
     color: "#fff",
     backgroundColor: "rgb(10,40,108)",
@@ -72,38 +78,46 @@ const EventPage = props => {
   });
   return (
     <div className={clsx("eventPage", classes.root)} data-testid="eventPage">
-      <Box className={classes.detailContainer}>
-        <Typography className={classes.eventType} component="span">
-          {event.typeName}
-        </Typography>
-        <Typography
-          component="span"
-          className={classes.eventDate}
-        >{`${date} ${time}`}</Typography>
-        <Grid container spacing={0} className={classes.eventName}>
-          <Grid item sm={5} style={{ textAlign: "right" }}>
-            {event.competitors && event.competitors[0].name}
-          </Grid>
-          <Grid item sm={2} style={{ textAlign: "center" }}>
-            V.S.
-          </Grid>
-          <Grid item sm={5} style={{ textAlign: "left" }}>
-            {event.competitors && event.competitors[1].name}
-          </Grid>
-        </Grid>
-        <Grid container spacing={0} className={classes.eventScores}>
-          <Grid item sm={5} style={{ textAlign: "right" }}>
-            Home
-          </Grid>
-          <Grid item sm={2} style={{ textAlign: "center", fontSize: "25px" }}>
-            {event.scores && `${event.scores.home} : ${event.scores.away}`}
-          </Grid>
-          <Grid item sm={5} style={{ textAlign: "left" }}>
-            Away
-          </Grid>
-        </Grid>
-      </Box>
-      <Box className={classes.marketContainer}>{content}</Box>
+      <MainLayout>
+        <Box className={classes.wrapper}>
+          <Box className={classes.detailContainer}>
+            <Typography className={classes.eventType} component="span">
+              {event.typeName}
+            </Typography>
+            <Typography
+              component="span"
+              className={classes.eventDate}
+            >{`${date} ${time}`}</Typography>
+            <Grid container spacing={0} className={classes.eventName}>
+              <Grid item sm={5} style={{ textAlign: "right" }}>
+                {event.competitors && event.competitors[0].name}
+              </Grid>
+              <Grid item sm={2} style={{ textAlign: "center" }}>
+                V.S.
+              </Grid>
+              <Grid item sm={5} style={{ textAlign: "left" }}>
+                {event.competitors && event.competitors[1].name}
+              </Grid>
+            </Grid>
+            <Grid container spacing={0} className={classes.eventScores}>
+              <Grid item sm={5} style={{ textAlign: "right" }}>
+                Home
+              </Grid>
+              <Grid
+                item
+                sm={2}
+                style={{ textAlign: "center", fontSize: "25px" }}
+              >
+                {event.scores && `${event.scores.home} : ${event.scores.away}`}
+              </Grid>
+              <Grid item sm={5} style={{ textAlign: "left" }}>
+                Away
+              </Grid>
+            </Grid>
+          </Box>
+          <Box className={classes.marketContainer}>{content}</Box>
+        </Box>
+      </MainLayout>
     </div>
   );
 };

@@ -7,9 +7,11 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
-  Typography
+  Typography,
+  Box
 } from "@material-ui/core";
 import { ExpandMore } from "@material-ui/icons";
+import MainLayout from "components/layouts/MainLayout";
 import { getLiveEventList } from "redux/_actions";
 import { sortEventsByTime, groupEventsByType } from "redux/selectors";
 
@@ -17,6 +19,9 @@ import EventType from "components/accordions/EventType";
 
 const useStyles = makeStyles({
   root: {
+    width: "100%"
+  },
+  wrapper: {
     margin: "10px"
   },
   header: {
@@ -51,21 +56,30 @@ const EventListPage = props => {
   }, []);
 
   return (
-    <div className={clsx("eventListPage", classes.root)} data-testid='eventListPage'>
-      <Accordion expanded={expanded}>
-        <AccordionSummary
-          className={classes.header}
-          expandIcon={<ExpandMore fontSize="large" className={classes.icon} />}
-          onClick={() => setExpanded(!expanded)}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <Typography className={classes.heading}>Football</Typography>
-        </AccordionSummary>
-        <AccordionDetails classes={{ root: classes.details }}>
-          {content}
-        </AccordionDetails>
-      </Accordion>
+    <div
+      className={clsx("eventListPage", classes.root)}
+      data-testid="eventListPage"
+    >
+      <MainLayout>
+        <Box className={classes.wrapper}>
+          <Accordion expanded={expanded}>
+            <AccordionSummary
+              className={classes.header}
+              expandIcon={
+                <ExpandMore fontSize="large" className={classes.icon} />
+              }
+              onClick={() => setExpanded(!expanded)}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Typography className={classes.heading}>Football</Typography>
+            </AccordionSummary>
+            <AccordionDetails classes={{ root: classes.details }}>
+              {content}
+            </AccordionDetails>
+          </Accordion>
+        </Box>
+      </MainLayout>
     </div>
   );
 };

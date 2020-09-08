@@ -9,8 +9,10 @@ import {
   FormControl,
   MenuItem,
   InputLabel,
-  Select
+  Select,
+  IconButton
 } from "@material-ui/core";
+import { Forward } from "@material-ui/icons";
 import Loading from "./Loading";
 import BetSlipPanel from "components/layouts/BetSlipPanel";
 import { setOddsFormat } from "redux/_actions";
@@ -25,7 +27,7 @@ const useStyles = makeStyles(theme => ({
     position: "relative"
   },
   contentWrapper: {
-    width: "78%"
+    width: "77%"
   },
   appBar: {
     height: "10vh",
@@ -62,6 +64,10 @@ const useStyles = makeStyles(theme => ({
   },
   label: {
     color: "#b2ebf2"
+  },
+  arrowIcon: {
+    transform: "rotate(180deg)",
+    color: "#fff"
   }
 }));
 
@@ -69,12 +75,12 @@ export const MainLayout = ({
   children,
   loading,
   isOddsDecimal,
-  setOddsFormat 
+  setOddsFormat
 }) => {
   const classes = useStyles();
 
   const handleChange = evt => {
-    setOddsFormat (evt.target.value);
+    setOddsFormat(evt.target.value);
   };
 
   return (
@@ -82,6 +88,9 @@ export const MainLayout = ({
       {loading && <Loading />}
       <Box className={clsx("contentWrapper", classes.contentWrapper)}>
         <Box className={clsx("appBar", classes.appBar)}>
+          <IconButton aria-label="back to live events list page">
+            <Forward className={classes.arrowIcon} />
+          </IconButton>
           <Typography className={classes.text} component="span">
             {constants.links.MY_BETS}
           </Typography>

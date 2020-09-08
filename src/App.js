@@ -6,7 +6,7 @@ import MainLayout from "components/layouts/MainLayout";
 
 function App() {
   return (
-    <MainLayout>
+    // <MainLayout>
       <Router>
         <Switch>
           <Route exact path="/" component={EventListPage} />
@@ -14,7 +14,7 @@ function App() {
           {/* <Route exact path="/" component={EventPage} /> */}
         </Switch>
       </Router>
-    </MainLayout>
+    // </MainLayout>
   );
 }
 
